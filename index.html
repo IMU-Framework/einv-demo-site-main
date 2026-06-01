@@ -210,9 +210,14 @@
        ================================================================ */
     $(function(){
       var _loaderTimer = setTimeout(hidePageLoader, 1500);
-      $('#included_navbar').load('template/_navbar.html', function() {
+      var _basePath = location.pathname;
+      if (!_basePath.endsWith('/')) {
+        _basePath = _basePath.substring(0, _basePath.lastIndexOf('/') + 1);
+      }
+      $('#included_navbar').load(_basePath + 'template/_navbar.html', function() {
         clearTimeout(_loaderTimer);
         hidePageLoader();
+        if (typeof initNavbar === 'function') initNavbar();
       });
       $('#included_footer').load('template/_footer.html');
 

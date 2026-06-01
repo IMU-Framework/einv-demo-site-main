@@ -234,6 +234,56 @@ function renderRoleCards(elId, data, cfg) {
 }
 
 /* ============================================================
+   Navbar 初始化
+   在使用 $('#included_navbar').load(...) 插入 navbar 之後呼叫
+   主要負責：渲染 solutionData 的選單項目、啟用 bootstrap tooltip、綁定簡單按鈕事件
+   ============================================================ */
+function initNavbar() {
+  try {
+    if (typeof solutionData !== 'undefined') {
+      var solHtml = '';
+      solutionData.forEach(function(s) {
+        if (s.active === false) return;
+        var isPlaceholder = !!s.isPlaceholder;
+        var href = isPlaceholder ? '#' : ('/' + s.link);
+        if (isPlaceholder) {
+          solHtml += '<li><span data-bs-toggle="tooltip" data-bs-placement="right" title="' + (s.tag||'') + '"><a class="dropdown-item disabled" href="' + href + '">' + s.name + '</a></span></li>';
+        } else {
+          solHtml += '<li><a class="dropdown-item" href="' + href + '" data-bs-toggle="tooltip" data-bs-placement="right" title="' + (s.tag||'') + '">' + s.name + '</a></li>';
+        }
+      });
+      $('#navbar-solution-items').html(solHtml);
+    }
+
+    // 啟用 tooltip（如果有）
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function(el) {
+      try { new bootstrap.Tooltip(el); } catch(e) { /* ignore */ }
+    });
+
+    // 綁定聯絡表單的清空按鈕（若存在）
+    var clearBtn = document.getElementById('btnClear');
+    if (clearBtn) {
+      clearBtn.addEventListener('click', function() {
+        var ids = ['InputCompanyName','InputContactName','InputEmail','InputCompanyPhone','InputMobilePhone','InputIndustry','InputArea','InputStoreType','InputStoreNum','InputRemark'];
+        ids.forEach(function(id){ var el = document.getElementById(id); if (el) el.value = ''; });
+        var checks = document.getElementsByName('InputItems');
+        if (checks && checks.length) for (var i=0;i<checks.length;i++) checks[i].checked = false;
+      });
+    }
+
+    // 綁定送出按鈕（如果原始 template 沒執行 script，則呼叫 submitForm 時有定義問題；這邊確保點擊不會拋錯）
+    if (window.jQuery) {
+      try {
+        $('#btnOK').off('click');
+        $('#btnOK').on('click', function(e){ if (typeof submitForm === 'function') { submitForm(); } else { /* no-op */ } return false; });
+      } catch(e) {}
+    }
+  } catch (e) {
+    console.error('initNavbar error', e);
+  }
+}
+
+/* ============================================================
    痛點卡片
    elId : 掛載容器的 id
    data : [{ icon?, image?, title, text }]
