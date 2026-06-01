@@ -88,43 +88,8 @@
         </div>
     </footer> -->
 
-<script>
-    // 聯絡資訊資料維護處
-    const footerData = {
-        companyName: "群豐資訊科技股份有限公司",
-        copyrightSuffix: "All rights reserved.",
-        contacts: [
-            { id: "tp", label: "台北總公司", tel: "+886-2-2783-9488" },
-            { id: "tc", label: "台中事業部", tel: "+886-4-2233-6916" },
-            { id: "ks", label: "高雄分公司", tel: "+886-7-556-2998" }
-        ]
-    };
-
-    function initFooter() {
-        // --- 渲染桌面版 ---
-        const deskContactArea = document.getElementById('footer-contact-info');
-        if (deskContactArea) {
-            deskContactArea.innerHTML = footerData.contacts.map(item => 
-                `<div class="small" id="footer-contact-info-${item.id}">${item.label} ${item.tel}</div>`
-            ).join('');
-        }
-        document.getElementById('footer-copyright').innerHTML = 
-            `Copyright &copy; ${footerData.companyName} ${footerData.copyrightSuffix}`;
-
-        // --- 渲染手機版 ---
-        const mobContactArea = document.getElementById('footer-contact-info-sm-container');
-        if (mobContactArea) {
-            mobContactArea.innerHTML = footerData.contacts.map(item => 
-                `<div class="small text-muted" id="footer-contact-info-${item.id}-sm">${item.label} ${item.tel}</div>`
-            ).join('');
-        }
-        document.getElementById('footer-copyright-sm').innerHTML = 
-            `Copyright &copy; ${footerData.companyName}<br class="d-block d-sm-none"> ${footerData.copyrightSuffix}`;
-    }
-
-    initFooter();
-</script>
-
+</body>
+</html>
 </body>
 </html>  
 <!-- IMU089_群豐資訊科技_新版EINV網頁 version1.0 created by IMU Framework. 2026/04/29 -->
