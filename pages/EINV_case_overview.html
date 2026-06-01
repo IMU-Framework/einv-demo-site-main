@@ -75,6 +75,7 @@
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="js/data-case.js"></script>
     <script src="js/data-solution.js"></script>
+    <script src="js/navbar.js"></script>
     <script src="js/components.js"></script>
     <script>
       $(function(){
@@ -82,6 +83,7 @@ var _loaderTimer = setTimeout(hidePageLoader, 1500);
         $('#included_navbar').load('template/navbar.html', function() {
           clearTimeout(_loaderTimer);
           hidePageLoader();
+          if (typeof initNavbar === 'function') initNavbar();
         });
         $('#included_footer').load('template/footer.html');
 
