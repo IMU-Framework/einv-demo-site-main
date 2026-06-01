@@ -1023,6 +1023,9 @@
   align-items: flex-end;
   gap: 0.3rem;
 }
+.role-wizard-scenario__link-wrap--multi .role-wizard-scenario__link {
+  display: block;
+}
 
 .role-wizard-panel__cta .btn { border-radius: 2rem; padding: 0.6rem 1.75rem; }
 
@@ -1031,6 +1034,7 @@
   .role-wizard-panel__content { padding: 1.5rem 1rem 1.25rem; }
   .role-wizard-scenario__link-wrap { display: none; }
   .role-wizard-scenario.active .role-wizard-scenario__link-wrap { display: block; }
+  .role-wizard-scenario.active .role-wizard-scenario__link-wrap--multi { display: flex; }
   .role-wizard-scenario__link-wrap { min-width: auto; }
   .role-wizard-scenario__link-wrap--multi { min-width: auto; align-items: flex-start; }
 }
