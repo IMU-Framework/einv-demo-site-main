@@ -49,9 +49,13 @@ var roleData = [
     multiSelect : false,
     scenarios   : [
       {
-        label: '我使用群豐 POS',
-        desc : '已有群豐POS系統，希望快速整合電子發票開立',
-        link : 'pages/EINV_solution1.html'
+        label: '我沒有POS，想找POS系統',
+        desc : '想要使用收銀機開立電子發票，但沒有POS軟體',
+        links: [
+          { text: '租賃方案',      url: 'https://freeposmk.emis.com.tw',              target: '_blank' },
+          { text: '零售業買斷方案', url: 'https://www.emis.com.tw/POS_retail.html',    target: '_blank' },
+          { text: '餐飲業買斷方案', url: 'https://www.emis.com.tw/POS_restaurant.html', target: '_blank' }
+        ]
       },
       {
         label: '我沒有POS，想用平台開立',
@@ -62,6 +66,12 @@ var roleData = [
         label: '我有POS，但不是群豐',
         desc : '使用他牌POS，需要整合或客製化電子發票解決方案',
         link : 'pages/EINV_solution3.html'
+      },
+      {
+        label   : '我使用群豐 POS',
+        desc    : '已有群豐POS系統，希望快速整合電子發票開立',
+        ctaModal: true,
+        ctaText : '聯繫業務'
       }
     ],
     ctaButtons  : []

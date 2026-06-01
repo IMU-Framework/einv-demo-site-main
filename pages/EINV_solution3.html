@@ -76,7 +76,9 @@
     <script>
       $(function(){
 $('#included_navbar').load('template/navbar.html', function() { if (typeof initNavbar === 'function') initNavbar(); });
-        $('#included_footer').load('template/footer.html');
+        $('#included_footer').load('template/footer.html', function() {
+          if (typeof initFooter === 'function') initFooter();
+        });
 
         renderSolutionPage(solutionData.filter(function(s){ return s.id === 'solution3'; })[0]);
       });

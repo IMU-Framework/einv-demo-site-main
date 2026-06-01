@@ -107,7 +107,9 @@ var _loaderTimer = setTimeout(hidePageLoader, 1500);
           hidePageLoader();
           if (typeof initNavbar === 'function') initNavbar();
         });
-        $('#included_footer').load('template/footer.html');
+        $('#included_footer').load('template/footer.html', function() {
+          if (typeof initFooter === 'function') initFooter();
+        });
 
         renderSectionTitle('page-title-faq', {
           title: '常見問題 FAQ',

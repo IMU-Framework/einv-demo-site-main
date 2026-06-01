@@ -85,7 +85,9 @@ var _loaderTimer = setTimeout(hidePageLoader, 1500);
           hidePageLoader();
           if (typeof initNavbar === 'function') initNavbar();
         });
-        $('#included_footer').load('template/footer.html');
+        $('#included_footer').load('template/footer.html', function() {
+          if (typeof initFooter === 'function') initFooter();
+        });
 
         renderSectionTitle('page-title-case', {
           title: '成功案例見證',

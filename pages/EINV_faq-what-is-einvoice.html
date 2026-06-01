@@ -66,7 +66,9 @@
     <script>
       $(function(){
 $('#included_navbar').load('template/navbar.html', function() { if (typeof initNavbar === 'function') initNavbar(); });
-        $('#included_footer').load('template/footer.html');
+        $('#included_footer').load('template/footer.html', function() {
+          if (typeof initFooter === 'function') initFooter();
+        });
 
         var myTitle = '什麼是電子發票？';
         var item = faqData.filter(function(d){ return d.title === myTitle; })[0];

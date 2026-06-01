@@ -66,7 +66,9 @@
     <script>
       $(function(){
 $('#included_navbar').load('template/navbar.html', function() { if (typeof initNavbar === 'function') initNavbar(); });
-        $('#included_footer').load('template/footer.html');
+        $('#included_footer').load('template/footer.html', function() {
+          if (typeof initFooter === 'function') initFooter();
+        });
 
         var caseId = $('#case-detail-content').data('case-id');
         var item = (caseData || []).filter(function(c){ return c.id === caseId; })[0];

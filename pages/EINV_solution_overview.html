@@ -96,7 +96,9 @@ var _loaderTimer = setTimeout(hidePageLoader, 1500);
           hidePageLoader();
           if (typeof initNavbar === 'function') initNavbar();
         });
-        $('#included_footer').load('template/footer.html');
+        $('#included_footer').load('template/footer.html', function() {
+          if (typeof initFooter === 'function') initFooter();
+        });
 
         /* Section 1：頁面標題 */
         renderSectionTitle('page-title-solution-overview', {

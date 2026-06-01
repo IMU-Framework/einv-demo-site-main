@@ -145,24 +145,42 @@ function renderRoleCards(elId, data, cfg) {
     var isMulti = !!role.multiSelect;
 
     var scenariosHtml = role.scenarios.map(function(s) {
-      var matchedSolution = getSolutionForScenario(s);
-      var solutionName = matchedSolution ? matchedSolution.name : (s.solutionName || '');
-      var solutionColor = matchedSolution ? (matchedSolution.colorRgb ? 'rgb(' + matchedSolution.colorRgb + ')' : matchedSolution.color) : (s.color || '');
-      var linkHtml = s.link
-        ? '<a href="' + s.link + '" class="role-wizard-scenario__link" style="color:' + solutionColor + '">' +
-            '<i class="bi bi-arrow-right-circle-fill me-1"></i>' + solutionName +
-          '</a>'
-        : '';
+      var linkHtml = '';
+      var isMultiLink = !!(s.links && s.links.length);
+      if (isMultiLink) {
+        linkHtml = s.links.map(function(lnk) {
+          return '<a href="' + lnk.url + '" class="role-wizard-scenario__link"' +
+            ' style="color:var(--_wiz-color)"' +
+            (lnk.target ? ' target="' + lnk.target + '"' : '') + '>' +
+            '<i class="bi bi-arrow-right-circle-fill me-1"></i>' + lnk.text +
+          '</a>';
+        }).join('');
+      } else if (s.ctaModal) {
+        linkHtml = '<a href="#" class="role-wizard-scenario__link"' +
+          ' style="color:var(--color-brand-navy)"' +
+          ' data-bs-toggle="modal" data-bs-target="#contactform">' +
+          '<i class="bi bi-arrow-right-circle-fill me-1"></i>' + (s.ctaText || '聯繫業務') +
+        '</a>';
+      } else if (s.link) {
+        var matchedSolution = getSolutionForScenario(s);
+        var solutionName = matchedSolution ? matchedSolution.name : (s.solutionName || '');
+        var solutionColor = matchedSolution ? (matchedSolution.colorRgb ? 'rgb(' + matchedSolution.colorRgb + ')' : matchedSolution.color) : (s.color || '');
+        linkHtml = '<a href="' + s.link + '" class="role-wizard-scenario__link" style="color:' + solutionColor + '">' +
+          '<i class="bi bi-arrow-right-circle-fill me-1"></i>' + solutionName +
+        '</a>';
+      }
+      var hasLink = isMultiLink || !!s.ctaModal || !!s.link;
+      var linkWrapClass = 'role-wizard-scenario__link-wrap' + (isMultiLink ? ' role-wizard-scenario__link-wrap--multi' : '');
       var iconHtml = isMulti
         ? '<div class="role-wizard-scenario__checkbox"><i class="bi bi-check-lg"></i></div>'
         : '<div class="role-wizard-scenario__radio"><span></span></div>';
-      return '<div class="role-wizard-scenario" data-has-link="' + (s.link ? '1' : '0') + '">' +
+      return '<div class="role-wizard-scenario" data-has-link="' + (hasLink ? '1' : '0') + '">' +
         iconHtml +
         '<div class="role-wizard-scenario__body">' +
           '<div class="role-wizard-scenario__label">' + s.label + '</div>' +
           '<div class="role-wizard-scenario__desc">' + s.desc + '</div>' +
         '</div>' +
-        '<div class="role-wizard-scenario__link-wrap">' + linkHtml + '</div>' +
+        '<div class="' + linkWrapClass + '">' + linkHtml + '</div>' +
       '</div>';
     }).join('');
 
@@ -1232,24 +1250,42 @@ function renderRoleWizard(containerId, wizardData) {
     /* scenario 清單 */
     var isMulti = !!role.multiSelect;
     var scenariosHtml = role.scenarios.map(function(s) {
-      var matchedSolution = getSolutionForScenario(s);
-      var solutionName = matchedSolution ? matchedSolution.name : (s.solutionName || '');
-      var solutionColor = matchedSolution ? (matchedSolution.colorRgb ? 'rgb(' + matchedSolution.colorRgb + ')' : matchedSolution.color) : (s.color || '');
-      var linkHtml = s.link
-        ? '<a href="' + s.link + '" class="role-wizard-scenario__link" style="color:' + solutionColor + '">' +
-            '<i class="bi bi-arrow-right-circle-fill me-1"></i>' + solutionName +
-          '</a>'
-        : '';
+      var linkHtml = '';
+      var isMultiLink = !!(s.links && s.links.length);
+      if (isMultiLink) {
+        linkHtml = s.links.map(function(lnk) {
+          return '<a href="' + lnk.url + '" class="role-wizard-scenario__link"' +
+            ' style="color:var(--_wiz-color)"' +
+            (lnk.target ? ' target="' + lnk.target + '"' : '') + '>' +
+            '<i class="bi bi-arrow-right-circle-fill me-1"></i>' + lnk.text +
+          '</a>';
+        }).join('');
+      } else if (s.ctaModal) {
+        linkHtml = '<a href="#" class="role-wizard-scenario__link"' +
+          ' style="color:var(--color-brand-navy)"' +
+          ' data-bs-toggle="modal" data-bs-target="#contactform">' +
+          '<i class="bi bi-arrow-right-circle-fill me-1"></i>' + (s.ctaText || '聯繫業務') +
+        '</a>';
+      } else if (s.link) {
+        var matchedSolution = getSolutionForScenario(s);
+        var solutionName = matchedSolution ? matchedSolution.name : (s.solutionName || '');
+        var solutionColor = matchedSolution ? (matchedSolution.colorRgb ? 'rgb(' + matchedSolution.colorRgb + ')' : matchedSolution.color) : (s.color || '');
+        linkHtml = '<a href="' + s.link + '" class="role-wizard-scenario__link" style="color:' + solutionColor + '">' +
+          '<i class="bi bi-arrow-right-circle-fill me-1"></i>' + solutionName +
+        '</a>';
+      }
+      var hasLink = isMultiLink || !!s.ctaModal || !!s.link;
+      var linkWrapClass = 'role-wizard-scenario__link-wrap' + (isMultiLink ? ' role-wizard-scenario__link-wrap--multi' : '');
       var iconHtml = isMulti
         ? '<div class="role-wizard-scenario__checkbox"><i class="bi bi-check-lg"></i></div>'
         : '<div class="role-wizard-scenario__radio"><span></span></div>';
-      return '<div class="role-wizard-scenario" data-has-link="' + (s.link ? '1' : '0') + '">' +
+      return '<div class="role-wizard-scenario" data-has-link="' + (hasLink ? '1' : '0') + '">' +
         iconHtml +
         '<div class="role-wizard-scenario__body">' +
           '<div class="role-wizard-scenario__label">' + s.label + '</div>' +
           '<div class="role-wizard-scenario__desc">' + s.desc + '</div>' +
         '</div>' +
-        '<div class="role-wizard-scenario__link-wrap">' + linkHtml + '</div>' +
+        '<div class="' + linkWrapClass + '">' + linkHtml + '</div>' +
       '</div>';
     }).join('');
 
