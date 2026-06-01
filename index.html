@@ -221,12 +221,12 @@
       if (!_basePath.endsWith('/')) {
         _basePath += '/';
       }
-      $('#included_navbar').load(_basePath + 'template/_navbar.html', function() {
+      $('#included_navbar').load(_basePath + 'template/navbar.html', function() {
         clearTimeout(_loaderTimer);
         hidePageLoader();
         if (typeof initNavbar === 'function') initNavbar();
       });
-      $('#included_footer').load(_basePath + 'template/_footer.html', function() {
+      $('#included_footer').load(_basePath + 'template/footer.html', function() {
         if (typeof initFooter === 'function') initFooter();
       });
 

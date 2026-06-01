@@ -157,11 +157,11 @@
 
       $(function(){
 var _loaderTimer = setTimeout(hidePageLoader, 1500);
-        $('#included_navbar').load('template/_navbar.html', function() {
+        $('#included_navbar').load('template/navbar.html', function() {
           clearTimeout(_loaderTimer);
           hidePageLoader();
         });
-        $('#included_footer').load('template/_footer.html');
+        $('#included_footer').load('template/footer.html');
 
         renderSectionTitle('page-title-tech', {
           title: '技術支援',

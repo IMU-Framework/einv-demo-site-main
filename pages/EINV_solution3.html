@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-Hant-TW">
 <head>
     <meta charset="UTF-8">
@@ -74,8 +74,8 @@
     <script src="js/components.js"></script>
     <script>
       $(function(){
-$('#included_navbar').load('template/_navbar.html');
-        $('#included_footer').load('template/_footer.html');
+$('#included_navbar').load('template/navbar.html');
+        $('#included_footer').load('template/footer.html');
 
         renderSolutionPage(solutionData.filter(function(s){ return s.id === 'solution3'; })[0]);
       });

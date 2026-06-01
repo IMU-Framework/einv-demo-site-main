@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-Hant-TW">
 <head>
     <meta charset="UTF-8">
@@ -90,11 +90,11 @@
     <script>
       $(function(){
 var _loaderTimer = setTimeout(hidePageLoader, 1500);
-        $('#included_navbar').load('template/_navbar.html', function() {
+        $('#included_navbar').load('template/navbar.html', function() {
           clearTimeout(_loaderTimer);
           hidePageLoader();
         });
-        $('#included_footer').load('template/_footer.html');
+        $('#included_footer').load('template/footer.html');
 
         /* Section 1：頁面標題 */
         renderSectionTitle('page-title-solution-overview', {

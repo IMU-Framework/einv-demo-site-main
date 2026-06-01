@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-Hant-TW">
 <head>
     <meta charset="UTF-8">
@@ -64,8 +64,8 @@
     <script src="js/components.js"></script>
     <script>
       $(function(){
-$('#included_navbar').load('template/_navbar.html');
-        $('#included_footer').load('template/_footer.html');
+$('#included_navbar').load('template/navbar.html');
+        $('#included_footer').load('template/footer.html');
 
         var caseId = $('#case-detail-content').data('case-id');
         var item = (caseData || []).filter(function(c){ return c.id === caseId; })[0];

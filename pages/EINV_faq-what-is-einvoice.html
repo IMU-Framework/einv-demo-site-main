@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-Hant-TW">
 <head>
     <meta charset="UTF-8">
@@ -64,8 +64,8 @@
     <script src="js/data-faq.js"></script>
     <script>
       $(function(){
-$('#included_navbar').load('template/_navbar.html');
-        $('#included_footer').load('template/_footer.html');
+$('#included_navbar').load('template/navbar.html');
+        $('#included_footer').load('template/footer.html');
 
         var myTitle = '什麼是電子發票？';
         var item = faqData.filter(function(d){ return d.title === myTitle; })[0];
