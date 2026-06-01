@@ -1,0 +1,156 @@
+/* ===========================================
+   Article / Detail Page Styles
+   Used by: EINV_case*.html, EINV_faq-*.html
+   =========================================== */
+
+/* ---- Hero Section (standalone page) ---- */
+.article-hero {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  background-color: var(--color-bg-page, #f8f9fa);
+}
+
+/* ---- Breadcrumb (standalone page only) ---- */
+.article-breadcrumb .breadcrumb-item a {
+  color: var(--bs-secondary);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.article-breadcrumb .breadcrumb-item.active {
+  color: var(--bs-gray-700);
+  font-size: 0.85rem;
+}
+
+.article-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  color: var(--bs-gray-500);
+  font-size: 0.85rem;
+}
+
+/* ---- Article Detail Content ---- */
+.article-detail {
+  padding: 2rem 0 3rem;
+}
+
+@media (max-width: 767.98px) {
+  .article-detail {
+    padding-top: 0.5rem;
+  }
+}
+
+.article-detail__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.article-detail__title {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  line-height: 1.25;
+}
+
+.article-detail__image-placeholder {
+  background-color: var(--bs-gray-400);
+  border-radius: 0.75rem;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+}
+
+.article-detail__image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---- Quote Block ---- */
+.article-detail__quote {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.article-detail__quote-mark {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 0.8;
+  vertical-align: -0.3em;
+  display: inline-block;
+}
+
+.article-detail__quote-mark--open {
+  margin-right: 0.15em;
+}
+
+.article-detail__quote-mark--close {
+  margin-left: 0.15em;
+}
+
+/* Quote mark color — 繼承自 #case-detail-content 的 --_solution-color */
+.article-detail__quote-mark { color: var(--_solution-color, var(--bs-gray-500)); }
+
+.article-detail__body {
+  font-size: 0.95rem;
+  color: var(--bs-gray-900);
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+/* ---- Modal Overlay (on EINV_case_overview.html) ---- */
+.article-modal-overlay {
+  position: fixed;
+  top: 100px;
+  left: 0;
+  right: 0;
+  z-index: 1025;
+  background: #ffffff;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.article-modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.article-modal-content {
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+}
+
+.article-modal-close {
+  position: fixed;
+  top: calc(100px + 1.5rem);
+  right: 1.5rem;
+  z-index: 1026;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 2px solid var(--bs-gray-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: var(--bs-gray-700);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.article-modal-close:hover {
+  background-color: var(--color-brand-navy);
+  color: #ffffff;
+  border-color: var(--color-brand-navy);
+}

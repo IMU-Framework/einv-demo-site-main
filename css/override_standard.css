@@ -1,0 +1,12 @@
+/* override_standard.css — 標準頁面覆寫樣式 */
+
+/* 手機版：navbar 佔位縮小、頁面第一個 section 緊貼 navbar */
+@media (max-width: 767.98px) {
+  #included_navbar {
+    height: 50px !important;
+  }
+  #included_navbar + section {
+    padding-top: 1.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+}

@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/override_common.css">
+    <link rel="stylesheet" href="css/solution-cards.css">
+    <link rel="stylesheet" href="css/case-cards.css">
+    <link rel="stylesheet" href="css/override_index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1062227694"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-1062227694');
+    </script>
+
+    <title>EMIS 群豐電子發票服務</title>
+</head>
+<body>
+
+    <div id="page-loader" aria-hidden="true">
+      <div class="page-loader__spinner"></div>
+    </div>
+
+    <div id="included_navbar" style="height: 80px;"></div>
+
+    <!-- ① 主打輪播 Banner -->
+    <section class="container mt-3 mt-lg-5" id="test-carousel">
+      <div id="bannerCarousel" class="carousel slide rounded-5" data-bs-ride="carousel">
+        <div class="carousel-inner"></div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        <div class="carousel-indicators"></div>
+      </div>
+    </section>
+
+    <!-- ② Hero 主題段落 -->
+    <section class="container py-5" id="test-hero">
+      <div id="section-title-hero"></div>
+      <div id="hero-features"></div>
+    </section>
+
+    <hr class="pos-divider">
+
+    <!-- ③ 角色分流卡片 -->
+    <section class="container py-5" id="test-section-3">
+      <div id="section-title-roles"></div>
+      <div id="role-cards-container" style="margin-top:36px"></div>
+      </div>
+    </section>
+
+    <hr class="pos-divider">
+
+    <!-- ④ 痛點卡片 -->
+    <section class="problem-strip" id="test-section-4">
+      <div class="container">
+        <div id="section-title-problems"></div>
+      </div>
+      <div class="problem-road-wrapper">
+        <div class="container">
+          <div id="problem-cards"></div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="pos-divider">
+
+    <!-- ⑤ 核心服務方案 -->
+    <section class="container py-5" id="test-section-5">
+      <div id="section-title-solutions"></div>
+      <div id="solution-cards"></div>
+    </section>
+
+    <hr class="pos-divider">
+
+    <!-- ⑥ 為什麼選擇EMIS -->
+    <section class="container py-5" id="test-section-6">
+      <div id="section-title-features"></div>
+      <div id="feature-steps"></div>
+    </section>
+
+    <hr class="pos-divider">
+
+    <!-- ⑦ 成功案例見證 -->
+    <section class="container py-5" id="test-section-7">
+      <div id="section-title-cases"></div>
+      <div class="d-flex flex-wrap case-row" id="case-cards"></div>
+      <div class="text-center mt-4">
+        <a href="pages/EINV_case_overview.html" class="btn btn-outline-dark rounded-pill px-4">看更多案例</a>
+      </div>
+    </section>
+
+    <!-- ⑧ CTA 行動呼籲 -->
+    <section class="cta-strip">
+      <div class="cta-title-row">
+        <div id="section-title-cta"></div>
+      </div>
+      <div class="text-center">
+        <a href="#" class="btn btn-lg rounded-pill px-5"
+           data-bs-toggle="modal" data-bs-target="#contactform">
+          免費諮詢，由專人為您評估
+        </a>
+      </div>
+    </section>
+
+    <section id="included_footer"></section>
+
+    <!-- 返回頂端按鈕 -->
+    <a href="javascript:void(0)" class="scroll-top-btn" aria-label="回到頂端">
+      <i class="bi bi-arrow-up"></i>
+    </a>
+
+    <!-- JS 載入順序：jQuery → Bootstrap → solution-data → components → role-cards → Slick → inline data -->
+    <script src="jquery/dist/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="js/data-solution.js"></script>
+    <script src="js/data-case.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/data-role.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script>
+    /* ================================================================
+       頁面資料區 — 客戶只需編輯這裡，不需碰其他程式碼
+       ================================================================ */
+
+    // ① Banner 輪播內容
+    var bannerData = [
+      {
+        image: 'img/home/banner-01.png',
+        title: 'EMIS 企業級發票服務',
+        text: '專為零售、餐飲、流通業打造的POS整合解決方案。'
+      },
+      {
+        image: 'img/home/banner-02.jpg',
+        title: '智慧化營運，簡化流程',
+        text: '串接電子發票、會員管理、支付與後台服務。'
+      },
+      {
+        image: 'img/home/banner-03.png',
+        title: '專業服務，永續經營',
+        text: '近40年通路服務經驗，提供穩定、安心的系統維運。'
+      }
+    ];
+
+    // ② Hero 特色圖示（icon 填入 Bootstrap Icon 類別名稱）
+    var heroData = [
+      { icon: 'img/icons/mof-logo.svg', label: '符合國稅局規範' },
+      { icon: 'bi-gear-wide-connected',     label: '支援多種POS/ERP' },
+      { icon: 'material:person_pin_circle',  label: '專人協助上線'   },
+    ];
+
+    // ③ 痛點卡片（icon 填入 Bootstrap Icons class；留 null 則顯示佔位圖示）
+    var problemData = [
+      {
+        icon: 'material:policy_alert',
+        title: '法規疑慮？',
+        text: '不確定電子發票規範，擔心作業不符合最新法規要求。'
+      },
+      {
+        icon: 'material:cell_merge',
+        title: '系統串接困難？',
+        text: '既有POS或ERP系統無法順利串接，導入流程耗時且複雜。'
+      },
+      {
+        icon: 'material:engineering',
+        title: '營運管理負擔？',
+        text: '導入後管理流程繁瑣，營運人力與成本壓力提高。'
+      }
+    ];
+
+    // ④ 核心服務方案 — 由 js/data-solution.js 統一管理，請直接編輯該檔案
+
+    // ⑤ 優勢卡片
+    var featureData = [
+      { number: '01', title: '多年經驗', text: '深耕電子發票領域，擁有豐富的產業導入成功案例。' },
+      { number: '02', title: '絕對合規', text: '系統設計完全符合財政部及稅務規定，安心上線。'   },
+      { number: '03', title: '無痛轉移', text: '從舊系統平滑切換，降低導入風險與人力負擔。'     },
+      { number: '04', title: '高度支援', text: '支援多種POS、ERP串接，提供專業諮詢與後勤維運。' }
+    ];
+
+    // ⑥ 成功案例圓圈卡 — 資料來源：js/data-case.js（有 logo 欄位者才顯示）
+
+    /* ================================================================
+       初始化（不需修改）
+       ================================================================ */
+    $(function(){
+      var _loaderTimer = setTimeout(hidePageLoader, 1500);
+      $('#included_navbar').load('template/_navbar.html', function() {
+        clearTimeout(_loaderTimer);
+        hidePageLoader();
+      });
+      $('#included_footer').load('template/_footer.html');
+
+      renderBanner();
+
+      renderSectionTitle('section-title-hero', {
+        badge: 'EMIS e-Invoice Service',
+        subtitle: '',
+        title: '一站式電子發票整合服務',
+        description: '專為零售、餐飲與系統整合商打造。讓門市合法開立，系統無痛串接。',
+        decorated: true
+      });
+      renderSectionTitle('section-title-roles', {
+        badge: '',
+        subtitle: '',
+        title: '您的角色是？',
+        description: '依您的角色，選擇最適合的方案。',
+        decorated: true
+      });
+      renderSectionTitle('section-title-problems', {
+        badge: '',
+        subtitle: '在導入電子發票時',
+        title: '您是否也遇到這些難題？',
+        decorated: true
+      });
+      renderSectionTitle('section-title-solutions', {
+        badge: '',
+        subtitle: '',
+        title: '我們的核心服務方案',
+        decorated: true
+      });
+      renderSectionTitle('section-title-features', {
+        badge: '',
+        subtitle: '為什麼選擇EMIS',
+        title: '做為您的加值服務中心？',
+        decorated: true
+      });
+      renderSectionTitle('section-title-cases', {
+        badge: '',
+        subtitle: '',
+        title: '成功案例見證',
+        decorated: true
+      });
+      renderSectionTitle('section-title-cta', {
+        badge: '',
+        subtitle: '',
+        title: '不確定適合哪一種方案？',
+        decorated: false
+      });
+
+      renderHeroFeatures('hero-features', heroData);
+      renderRoleCards('role-cards-container', roleData);
+      renderProblemCards('problem-cards', problemData);
+      renderSolutionCards('solution-cards', solutionData);
+      renderFeatureSteps('feature-steps', featureData);
+      var logoItems = (caseData || [])
+        .filter(function(c) { return c.logo; })
+        .map(function(c) { return { logo: c.logo, brand: c.title, link: c.link }; });
+      renderCaseCircles('case-cards', logoItems);
+    });
+
+    /* ----------------------------------------------------------------
+       Banner 輪播（僅 index.html 使用）
+       ---------------------------------------------------------------- */
+    function renderBanner() {
+      var indicators = $('#bannerCarousel .carousel-indicators');
+      var inner      = $('#bannerCarousel .carousel-inner');
+      indicators.empty();
+      inner.empty();
+      bannerData.forEach(function(item, index) {
+        var isFirst = index === 0;
+        indicators.append(
+          '<button type="button" data-bs-target="#bannerCarousel" ' +
+          'data-bs-slide-to="' + index + '" ' +
+          (isFirst ? 'class="active" aria-current="true" ' : '') +
+          'aria-label="Slide ' + (index + 1) + '"></button>'
+        );
+        inner.append(
+          '<div class="carousel-item ' + (isFirst ? 'active' : '') + '">' +
+            '<img src="' + item.image + '" class="d-block w-100" ' +
+                 'alt="Banner ' + (index + 1) + '" style="object-fit:cover;height:300px;">' +
+            (item.title || item.text
+              ? '<div class="carousel-caption banner-caption bg-dark bg-opacity-50">' +
+                  (item.title ? '<h2 class="banner-caption__title mb-1">' + item.title + '</h2>' : '') +
+                  (item.text  ? '<p class="banner-caption__text mb-0">'  + item.text  + '</p>'  : '') +
+                '</div>'
+              : '') +
+          '</div>'
+        );
+      });
+    }
+    </script>
+
+</body>
+</html>

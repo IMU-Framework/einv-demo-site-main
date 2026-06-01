@@ -1,0 +1,1028 @@
+/*
+ * components.css - EMIS 共用組件樣式庫
+ * 所有可重用組件的 CSS，供所有頁面引用
+ * 修改組件外觀請在此檔案操作，勿動 main.min.css
+ */
+
+/* ============================================
+   Section 標題組件 - Section Title
+   ============================================ */
+.section-title {
+  text-align: center;
+}
+
+.section-title__badge {
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background-color: rgba(var(--color-brand-navy-rgb), 0.1);
+  color: var(--color-brand-navy);
+  margin-bottom: 1rem;
+}
+
+.section-title__sub {
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--bs-dark);
+}
+
+.section-title__desc {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  color: var(--bs-secondary);
+  font-size: 0.95rem;
+}
+
+.section-title__main {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--bs-dark);
+  margin: 0;
+}
+
+/* 裝飾圖示變體：標題兩側雲朵裝飾（例：成功案例見證、您的角色是？） */
+.section-title--decorated .section-title__main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.section-title--decorated .section-title__main::before,
+.section-title--decorated .section-title__main::after {
+  content: "";
+  flex-shrink: 0;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.section-title--decorated .section-title__main::before {
+  background-image: url('../img/icons/halfcloud-left.svg');
+}
+
+.section-title--decorated .section-title__main::after {
+  background-image: url('../img/icons/halfcloud-right.svg');
+}
+
+/* 末尾為全形標點時，標題字右移補償全形標點右側空白，維持視覺置中 */
+.section-title__main--punct-end span {
+  margin-left: 0.25em;
+}
+
+/* ============================================
+   Hero 特色圖示列 - Hero Feature Icons
+   三個圖示 + 桌面箭頭連接器
+   ============================================ */
+/* Hero 特色圖示帶：全寬橫線 + 三圓圖示 */
+.hfs {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 165px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 0;
+}
+
+/* 橫線對準圓圈中心 */
+.hfs::before {
+  content: '';
+  position: absolute;
+  top: 45px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: var(--bs-gray-600);
+  z-index: 0;
+}
+
+.hfs__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 1rem;
+}
+
+.hero-feature__icon {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--bs-gray-600);
+  color: var(--bs-gray-600);
+  font-size: 50px;
+}
+
+.hfs__icon-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.hero-feature__icon .material-symbols-outlined,
+.hero-feature__icon i,
+.hero-feature__icon span {
+  font-size: inherit;
+  line-height: 1;
+}
+
+.hero-feature__label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--bs-gray-800);
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+
+/* ============================================
+   角色分流卡片 - Role Card
+   ============================================ */
+.role-card {
+  border: 3px solid var(--role-card-color, var(--bs-dark));
+  border-radius: 1.5rem;
+  overflow: hidden;
+  min-height: 260px;
+  text-align: center;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.role-card:hover {
+  border-color: var(--role-card-color, var(--bs-dark));
+  box-shadow: 0 0.75rem 2rem rgba(var(--role-card-color-rgb, var(--bs-dark-rgb)), 0.15);
+}
+
+/* ── 卡片頭 ── */
+.role-card__head {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+/* 倒三角旗標裝飾 — 與卡片頭同色，緊接在頭部底端 */
+.role-card__head-flag {
+  display: block;
+  width: 35px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* 卡片主體 */
+.role-card__body {
+  padding: 1.5rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+}
+
+.role-card__icon {
+  margin-bottom: 1rem;
+}
+
+.role-card__icon img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.role-card__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--bs-dark);
+  margin: 0.5rem 0;
+}
+
+.role-card__description {
+  font-size: 0.95rem;
+  color: var(--bs-secondary);
+  width: 95%;
+  margin: 0.75rem auto 1.5rem;
+}
+
+.role-card .btn-role-outline {
+  color: var(--role-card-color, var(--bs-dark));
+  border: 2px solid var(--role-card-color, var(--bs-dark));
+  background-color: transparent;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.role-card .btn-role-outline:hover,
+.role-card .btn-role-outline:focus {
+  color: #fff;
+  background-color: var(--role-card-color, var(--bs-dark));
+  border-color: var(--role-card-color, var(--bs-dark));
+}
+
+/* ============================================
+   痛點卡片 - Problem Card
+   ============================================ */
+.problem-strip {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* 全寬道路裝飾線 wrapper；無額外 padding，高度由卡片決定，top:50% 精準對齊卡片中心 */
+.problem-road-wrapper {
+  position: relative;
+}
+
+.problem-road-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 40px;
+  transform: translateY(-50%);
+  background-color: var(--bs-gray-500);
+  background-image: linear-gradient(to right, #ffffff 50%, transparent 50%);
+  background-size: 40px 5px;
+  background-repeat: repeat-x;
+  background-position: 0 center;
+}
+
+/* 卡片 flex row：固定寬、大間距、浮在道路線上 */
+.problem-cards-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.problem-card-col {
+  width: 260px;
+  flex: 0 0 260px;
+  /* drop-shadow 跟著凸形輪廓走，box-shadow 只能跟矩形邊框 */
+  filter: drop-shadow(9px 9px 0 rgba(0, 0, 0, 0.18));
+}
+
+.problem-card {
+  border: 3px solid var(--bs-gray-600);
+  border-radius: 1.25rem;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.problem-card__image-wrap {
+  padding: 2rem 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.problem-card__image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bs-gray-600);
+  font-size: 4rem;
+}
+
+.problem-card__image .material-symbols-outlined {
+  font-size: inherit;
+  line-height: 1;
+}
+
+.problem-card__image img {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+}
+
+.problem-card__body {
+  padding: 0 1.75rem 2rem;
+  text-align: center;
+}
+
+.problem-card__body h5 {
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.problem-card__body p {
+  color: var(--bs-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ============================================
+   優勢卡片 - Feature Step
+   ============================================ */
+.feature-step {
+  border-radius: 0;
+  background: transparent;
+  text-align: center;
+  padding: 2.5rem 2rem 2rem;
+  border: none;
+  border-right: 2px solid var(--bs-gray-400);
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: none;
+}
+
+.col-12.col-sm-6.col-lg-3:last-child .feature-step {
+  border-right: none;
+}
+
+.feature-step__number {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--color-brand-navy);
+  margin-bottom: 1.25rem;
+  line-height: 1;
+}
+
+.feature-step__title {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+}
+
+.feature-step__text {
+  font-size: 0.95rem;
+  color: var(--bs-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ============================================
+   CTA 行動呼籲區塊 - CTA Strip
+   ============================================ */
+.cta-strip {
+  background-color: #ffffff;
+  color: var(--color-brand-dark, #1a1a2e);
+  padding: 3rem 0;
+}
+
+.cta-strip .btn {
+  background-color: var(--color-brand-navy);
+  color: #ffffff;
+  border: 2px solid var(--color-brand-navy);
+}
+
+.cta-strip .btn:hover {
+  background-color: #ffffff;
+  color: var(--color-brand-navy);
+  border-color: var(--color-brand-navy);
+}
+
+.cta-strip .section-title__main {
+  color: var(--color-brand-dark, #1a1a2e);
+}
+
+/* 道路裝飾線：標題兩側延伸至頁面邊緣的 navy 橫欄＋白色虛線 */
+.cta-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.cta-title-row::before,
+.cta-title-row::after {
+  content: '';
+  flex: 1 1 0;
+  min-width: 0;
+  height: 40px;
+  background-color: var(--color-brand-navy);
+  background-size: 40px 5px;
+  background-repeat: repeat-x;
+}
+
+/* 左欄：從靠文字側（右）往外排，確保接縫處一定是實線 */
+.cta-title-row::before {
+  background-image: linear-gradient(to left, #ffffff 50%, transparent 50%);
+  background-position: right center;
+}
+
+/* 右欄：從靠文字側（左）往外排，確保接縫處一定是實線 */
+.cta-title-row::after {
+  background-image: linear-gradient(to right, #ffffff 50%, transparent 50%);
+  background-position: left center;
+}
+
+.cta-title-row #section-title-cta {
+  flex-shrink: 0;
+  padding: 0 1.5rem;
+}
+
+.cta-title-row .section-title {
+  margin-bottom: 0 !important;
+}
+
+/* ============================================
+   段落標題（全頁共用 Bullet Section Heading）
+   同 solution-page.css .section-heading 一致
+   供不載入 solution-page.css 的頁面使用
+   ============================================ */
+.section-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.section-heading::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--color-brand-dark);
+  flex-shrink: 0;
+}
+
+.section-subheading {
+  font-size: 0.93rem;
+  color: var(--bs-secondary);
+  margin-bottom: 2.5rem;
+}
+
+/* ============================================
+   共用 Accordion 樣式（page-accordion）
+   透明背景、底線分隔，供 tech-support / faq 等頁使用
+   ============================================ */
+.page-accordion .accordion-item {
+  border: none;
+  border-bottom: 1px solid var(--bs-gray-300);
+}
+
+.page-accordion .accordion-item:first-of-type {
+  border-top: 1px solid var(--bs-gray-300);
+  border-radius: 0;
+}
+
+.page-accordion .accordion-item:last-of-type {
+  border-radius: 0;
+}
+
+.page-accordion .accordion-button {
+  background-color: #f8f9fa;
+  color: var(--bs-dark);
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 0;
+  gap: 0.75rem;
+}
+
+.page-accordion .accordion-button:not(.collapsed) {
+  background-color: var(--bs-gray-200);
+  color: var(--bs-dark);
+  box-shadow: none;
+}
+
+.page-accordion .accordion-button::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.page-accordion .accordion-button:focus {
+  box-shadow: none;
+}
+
+.page-accordion .accordion-body {
+  padding: 1.5rem 1.75rem;
+  background-color: #ffffff;
+}
+
+/* 技術支援 accordion 數字徽章 */
+.page-accordion {
+  counter-reset: accordion-num;
+}
+
+.service-num::before {
+  counter-increment: accordion-num;
+  content: counter(accordion-num);
+}
+
+.service-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  line-height: 0.75;
+  border-radius: 50%;
+  background-color: var(--bs-dark);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   技術文件連結清單 - Document Link List
+   ============================================ */
+.doc-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.doc-link-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 0;
+  font-size: 0.95rem;
+  color: var(--color-brand-dark);
+  border-bottom: 1px solid var(--bs-gray-200);
+}
+
+.doc-link-list li:last-of-type {
+  border-bottom: none;
+}
+
+.doc-link-list li i {
+  color: var(--bs-secondary);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.doc-link-list li a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  color: var(--color-brand-navy);
+  text-decoration: none;
+}
+
+.doc-link-list li a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
+   外部連結清單 - External Link List（FAQ 通則）
+   ============================================ */
+.ext-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ext-link-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.ext-link-list li i {
+  color: var(--bs-secondary);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.ext-link-list li a {
+  color: var(--color-brand-navy);
+  text-decoration: none;
+}
+
+.ext-link-list li a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
+   返回頂端按鈕 - Scroll to Top
+   ============================================ */
+.scroll-top-btn {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 2px solid var(--bs-gray-300);
+  color: var(--bs-gray-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  line-height: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  z-index: 1030;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.scroll-top-btn:hover {
+  background-color: var(--color-brand-navy);
+  color: #ffffff;
+  border-color: var(--color-brand-navy);
+}
+
+.scroll-top-btn i {
+  display: block;
+  line-height: 1;
+}
+
+/* ============================================
+   Section Divider
+   使用方式：<hr size="2" class="pos-divider">
+   固定 300px 寬，置中，適用各頁面段落間分隔
+   ============================================ */
+.pos-divider {
+  width: 300px;
+  height: 2px !important;
+  border-width: 0;
+  color: var(--bs-secondary);
+  background-color: var(--bs-secondary);
+  opacity: 0.25;
+  margin: 3rem auto;
+}
+
+/* ============================================
+   FAQ 搜尋列（Bootstrap input-group）
+   左側圖示由 .faq-search-prepend 提供，
+   不使用絕對定位，避免與 form-control 重疊
+   ============================================ */
+.faq-search-prepend {
+  background: #ffffff;
+  border-right: none;
+  border-radius: 999px 0 0 999px;
+  color: var(--bs-gray-500);
+  font-size: 0.85rem;
+  padding-right: 0.4rem;
+}
+
+.faq-search-input {
+  border-left: none;
+  border-radius: 0 999px 999px 0;
+  font-size: 0.9rem;
+  transition: border-color 0.15s ease;
+  box-shadow: none;
+}
+
+.faq-search-input:focus {
+  border-color: var(--bs-dark);
+  box-shadow: none;
+}
+
+.input-group:focus-within .faq-search-prepend {
+  border-color: var(--bs-dark);
+}
+
+/* ============================================
+   FAQ YouTube 嵌入容器
+   .ratio.ratio-16x9 為 Bootstrap 5 原生，
+   此 class 僅負責圓角與裁切
+   ============================================ */
+.faq-video-wrap {
+  border-radius: 0.375rem;
+  overflow: hidden;
+}
+
+/* ============================================
+   手機版全體組件精簡（< 768px）
+   ============================================ */
+@media (max-width: 767.98px) {
+
+  Section 標題
+  .section-title__main { font-size: 1.5rem; }
+  .section-title__sub  { font-size: 1.2rem; }
+
+  /* Section 分隔線 */
+  .pos-divider { margin: 1.5rem auto; }
+
+  /* Hero 特色圖示帶 mobile */
+  .hfs { justify-content: space-around; gap: 0; }
+  .hfs::before { top: 36px; }
+  .hero-feature__icon {
+    width: 72px;
+    height: 72px;
+    font-size: 40px; /* 5/9 × 72 */
+  }
+  .hero-feature__label {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+
+  /* 角色分流卡片 */
+  .role-card { min-height: unset; }
+  .role-card__body { padding: 1rem 1.25rem 1.25rem; }
+  .role-card__description { margin-bottom: 1rem; }
+
+  /* 痛點卡片 */
+  .problem-card-col { width: min(260px, 88vw); flex: 0 0 min(260px, 88vw); }
+  .problem-road-wrapper::before { display: none; }
+  .problem-card__image { font-size: 3rem; }
+  .problem-card__body { padding: 0 1.25rem 1.5rem; }
+  .problem-card__body h5 { margin-bottom: 0.5rem; }
+
+  /* 優勢卡片 */
+  .feature-step {
+    padding: 1.5rem 1.25rem;
+    min-height: unset;
+  }
+  .feature-step__number {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+}
+
+/* 優勢卡片 — 平板（2欄），偶數欄移除右側分隔線 */
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .col-sm-6:nth-child(2n) .feature-step {
+    border-right: none;
+  }
+}
+
+/* 優勢卡片 — 手機（1欄），改用底部分隔線 */
+@media (max-width: 575.98px) {
+  .feature-step {
+    border-right: none;
+    border-bottom: 1px solid var(--bs-gray-300);
+  }
+  .col-12:last-child .feature-step {
+    border-bottom: none;
+  }
+}
+
+/* ============================================
+   頁面載入遮罩（Page Loader Overlay）
+   預設可見；JS 呼叫 hidePageLoader() 後淡出並移除
+   ============================================ */
+#page-loader {
+  position: fixed;
+  top: 80px; /* 手機：navbar 約 53px + 餘裕 */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.35s ease;
+}
+@media (min-width: 768px) {
+  #page-loader { top: 80px; }
+}
+#page-loader.is-hiding {
+  opacity: 0;
+  pointer-events: none;
+}
+.page-loader__spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(14, 78, 150, 0.15);
+  border-top-color: #0E4E96;
+  border-radius: 50%;
+  animation: page-loader-spin 0.75s linear infinite;
+}
+@keyframes page-loader-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Role Wizard
+   ══════════════════════════════════════════════════════════════ */
+
+/* 角色選擇卡 */
+.role-wizard-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border: 2px solid var(--_wiz-color, #0d6efd);
+  border-radius: 1rem;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  text-align: left;
+}
+.role-wizard-card:hover {
+  background: color-mix(in srgb, var(--_wiz-color, #0d6efd) 6%, white);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+.role-wizard-card__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--_wiz-color, #0d6efd);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.role-wizard-card__title {
+  flex: 1;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-brand-dark, #1a1a2e);
+}
+.role-wizard-card__arrow {
+  color: var(--_wiz-color, #0d6efd);
+  font-size: 1.1rem;
+}
+
+/* Wizard Panel */
+.role-wizard-panel__inner {
+  display: flex;
+  border: 1.5px solid #dee2e6;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  position: relative;
+}
+.role-wizard-panel__sidelabel {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 0.6rem;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+  min-width: 2.5rem;
+}
+.role-wizard-panel__content {
+  flex: 1;
+  padding: 2rem 2rem 1.75rem;
+  position: relative;
+}
+.role-wizard-panel__title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.75rem;
+  color: var(--color-brand-dark, #1a1a2e);
+}
+.role-wizard-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.role-wizard-close:hover { color: #1a1a2e; }
+
+/* Scenario 清單（店家路徑：有右側連結） */
+.role-wizard-scenario-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.role-wizard-scenario {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border: 1.5px solid #dee2e6;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  margin-bottom: 0.75rem;
+}
+.role-wizard-scenario:last-child { margin-bottom: 0; }
+.role-wizard-scenario:hover {
+  border-color: #adb5bd;
+  background: #f8f9fa;
+}
+.role-wizard-scenario.active {
+  border-color: var(--_wiz-color, #0d6efd);
+  background: color-mix(in srgb, var(--_wiz-color, #0d6efd) 8%, white);
+}
+
+/* IT路徑：線段分隔（無 border box） */
+.role-wizard-scenario-list.is-it .role-wizard-scenario {
+  border: none;
+  border-bottom: 1px solid #e9ecef;
+  border-radius: 0;
+  margin-bottom: 0;
+  padding: 1rem 0.5rem;
+}
+.role-wizard-scenario-list.is-it .role-wizard-scenario:last-child {
+  border-bottom: none;
+}
+.role-wizard-scenario-list.is-it .role-wizard-scenario:hover { background: #f8f9fa; }
+.role-wizard-scenario-list.is-it .role-wizard-scenario.active { background: transparent; }
+
+/* radio（單選） */
+.role-wizard-scenario__radio {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid #adb5bd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.2s;
+}
+.role-wizard-scenario__radio span {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: transparent;
+  transition: background 0.2s;
+}
+.role-wizard-scenario.active .role-wizard-scenario__radio { border-color: var(--_wiz-color, #0d6efd); }
+.role-wizard-scenario.active .role-wizard-scenario__radio span { background: var(--_wiz-color, #0d6efd); }
+
+/* checkbox（複選） */
+.role-wizard-scenario__checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid #adb5bd;
+  border-radius: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  color: transparent;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+.role-wizard-scenario.active .role-wizard-scenario__checkbox {
+  border-color: var(--_wiz-color, #1a1a2e);
+  background: var(--_wiz-color, #1a1a2e);
+  color: #fff;
+}
+
+.role-wizard-scenario__body { flex: 1; }
+.role-wizard-scenario__label {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #1a1a2e;
+}
+.role-wizard-scenario__desc {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin-top: 0.15rem;
+}
+.role-wizard-scenario__link-wrap {
+  flex-shrink: 0;
+  min-width: 7rem;
+  text-align: right;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.role-wizard-scenario.active .role-wizard-scenario__link-wrap { opacity: 1; }
+.role-wizard-scenario__link {
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.role-wizard-scenario__link:hover { text-decoration: underline; }
+
+.role-wizard-panel__cta .btn { border-radius: 2rem; padding: 0.6rem 1.75rem; }
+
+@media (max-width: 575.98px) {
+  .role-wizard-panel__sidelabel { display: none; }
+  .role-wizard-panel__content { padding: 1.5rem 1rem 1.25rem; }
+  .role-wizard-scenario__link-wrap { display: none; }
+  .role-wizard-scenario.active .role-wizard-scenario__link-wrap { display: block; }
+  .role-wizard-scenario__link-wrap { min-width: auto; }
+}
+

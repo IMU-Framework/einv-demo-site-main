@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/override_common.css">
+    <link rel="stylesheet" href="css/solution-cards.css">
+    <link rel="stylesheet" href="css/case-cards.css">
+    <link rel="stylesheet" href="css/override_standard.css">
+    <link rel="stylesheet" href="css/article-page.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1062227694"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-1062227694');
+    </script>
+
+    <title>免 POS 輕鬆合規，餐飲門市順利完成電子發票上線 - 群豐電子發票服務</title>
+</head>
+<body>
+
+    <div id="included_navbar" style="height: 80px;"></div>
+
+    <section class="article-hero">
+      <div class="container">
+        <nav aria-label="breadcrumb" class="article-breadcrumb mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="pages/EINV_case_overview.html">成功案例</a></li>
+            <li class="breadcrumb-item active" aria-current="page">免 POS 輕鬆合規，餐飲門市順利完成電子發票上線</li>
+          </ol>
+        </nav>
+      </div>
+
+      <section id="case-detail-content" data-case-id="case5" class="article-detail">
+        <div class="container" id="case-detail-body"></div>
+      </section>
+    </section>
+
+    <div id="included_footer"></div>
+
+    <a href="javascript:void(0)" class="scroll-top-btn" aria-label="回到頂端">
+      <i class="bi bi-arrow-up"></i>
+    </a>
+
+    <script src="jquery/dist/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="js/data-case.js"></script>
+    <script src="js/data-solution.js"></script>
+    <script src="js/components.js"></script>
+    <script>
+      $(function(){
+$('#included_navbar').load('template/_navbar.html');
+        $('#included_footer').load('template/_footer.html');
+
+        var caseId = $('#case-detail-content').data('case-id');
+        var item = (caseData || []).filter(function(c){ return c.id === caseId; })[0];
+        if (item) renderCaseDetail(item);
+      });
+    </script>
+
+</body>
+</html>
+<!-- IMU089_群豐資訊科技_新版EINV網頁 version1.0 created by IMU Framework. 2026/04/29 -->

@@ -1,0 +1,200 @@
+/*
+ * case-cards.css — 成功案例相關卡片組件
+ * 含：案例圓圈展示（首頁 / 方案頁）、案例卡片網格（總覽頁）、案例詳情標籤
+ * 引用頁面：index.html、EINV_solution_overview.html、
+ *          EINV_case_overview.html、EINV_case1~N.html
+ */
+
+/* ============================================
+   成功案例圓圈卡 - Case Circle
+   ============================================ */
+.case-row {
+  gap: 40pt;
+  justify-content: center;
+}
+
+.case-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.case-circle {
+  width: 116px;
+  height: 116px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bs-gray-700);
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+}
+
+.case-circle__logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.case-name {
+  margin-top: 0.75rem;
+  color: var(--bs-gray-700);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+a.case-item {
+  text-decoration: none;
+  color: inherit;
+}
+a.case-item:hover .case-circle {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+  transform: translateY(-2px);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+/* 跑馬燈模式（≥ 5 筆 logo 時由 renderCaseCircles 自動掛載） */
+.case-row--marquee {
+  overflow: hidden;
+  flex-wrap: nowrap !important;
+  padding-top: 20px;
+  margin-top: -20px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.marquee-track {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  flex-shrink: 0;
+  animation: marquee-scroll var(--marquee-duration, 24s) linear infinite;
+}
+.marquee-track .case-item {
+  margin-right: 40pt;
+}
+.case-row--marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(var(--marquee-offset, -50%)); }
+}
+
+/* ============================================
+   成功案例卡片 - Case Card（EINV_case_overview）
+   ============================================ */
+.case-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.case-card:hover {
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.14);
+  transform: translateY(-2px);
+}
+
+.case-card__image {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  background-color: var(--bs-gray-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.case-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.case-card__tags {
+  position: absolute;
+  top: 0.65rem;
+  left: 0.65rem;
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.case-card__tag {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.case-card__tag--industry {
+  background-color: var(--color-brand-dark);
+  color: #ffffff;
+}
+
+/* 方案 tag：顏色由 --_solution-color 驅動（直接在元素或父層設定）*/
+.case-card__tag--solution {
+  background-color: var(--_solution-color, var(--bs-gray-500));
+  color: #ffffff;
+}
+
+.case-card__body {
+  padding: 1.1rem 1.25rem 1.5rem;
+  flex-grow: 1;
+}
+
+.case-card__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  margin-bottom: 0.4rem;
+}
+
+.case-card__desc {
+  font-size: 0.85rem;
+  color: var(--bs-secondary);
+  line-height: 1.5;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Slick 輪播內 case-card 間距 */
+.case-card-carousel .slick-slide {
+  padding: 0 10px;
+}
+
+.case-card-carousel .slick-list {
+  margin: 0 -10px;
+  padding-bottom: 1.5rem !important;
+}
+
+@media (max-width: 575.98px) {
+  .case-card-carousel .slick-slide {
+    padding: 0 6px;
+  }
+}
+
+/* ============================================
+   手機版精簡（< 768px）
+   ============================================ */
+@media (max-width: 767.98px) {
+  .case-row { gap: 16pt; }
+  .marquee-track .case-item { margin-right: 16pt; }
+  .case-circle { width: 88px; height: 88px; }
+  .case-name { font-size: 0.8rem; margin-top: 0.5rem; }
+}

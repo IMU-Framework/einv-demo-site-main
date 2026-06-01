@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/override_common.css">
+    <link rel="stylesheet" href="css/override_standard.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1062227694"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-1062227694');
+    </script>
+
+    <title>技術支援 - 群豐電子發票服務</title>
+</head>
+<body>
+
+    <div id="page-loader" aria-hidden="true">
+      <div class="page-loader__spinner"></div>
+    </div>
+
+    <div id="included_navbar" style="height: 80px;"></div>
+
+    <!-- 頁面大標題 -->
+    <section class="pt-5 pb-4">
+      <div class="container text-center">
+        <div id="page-title-tech"></div>
+      </div>
+    </section>
+
+    <!-- 分段標籤 -->
+    <section class="py-3" style="background-color: #ffffff; border-bottom: 1px solid #dee2e6;">
+      <div class="container">
+        <div class="d-flex flex-wrap gap-2">
+          <a href="javascript:void(0)" data-tech-target="#tech-section-services"
+             class="btn btn-outline-dark btn-sm rounded-pill tech-tab-btn">我們提供的技術服務</a>
+          <a href="javascript:void(0)" data-tech-target="#tech-section-docs"
+             class="btn btn-outline-dark btn-sm rounded-pill tech-tab-btn">技術文件入口</a>
+          <a href="javascript:void(0)" data-tech-target="#tech-section-service-center"
+             class="btn btn-outline-dark btn-sm rounded-pill tech-tab-btn">線上服務中心</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 1: 我們提供的技術服務 -->
+    <section id="tech-section-services" class="py-5" style="background-color: #ffffff;">
+      <div class="container">
+        <h3 class="section-heading">我們提供的技術服務</h3>
+        <div id="tech-services-accordion" class="mt-4"></div>
+      </div>
+    </section>
+
+    <!-- Section 2: 技術文件入口 -->
+    <section id="tech-section-docs" class="py-5">
+      <div class="container">
+        <h3 class="section-heading">技術文件入口</h3>
+        <ul class="doc-link-list mt-4">
+          <li>
+            <a href="">
+              <i class="bi bi-file-earmark-pdf"></i>
+              API 功能列表 (PDF)
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="bi bi-file-earmark-pdf"></i>
+              串接流程 (PDF)
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="bi bi-file-earmark-pdf"></i>
+              申請方式 (PDF)
+            </a>
+          </li>
+        </ul>
+        <div class="mt-5">
+          <a href="#" class="btn btn-brand-navy px-5 rounded-pill"
+             data-bs-toggle="modal" data-bs-target="#contactform">
+            聯繫專人，索取API文件
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: 線上服務中心 -->
+    <section id="tech-section-service-center" class="py-5" style="background-color: #ffffff;">
+      <div class="container">
+        <h3 class="section-heading">線上服務中心</h3>
+        <div class="row g-3 mt-3" style="max-width: 520px;">
+          <div class="col-6">
+            <a href="#" class="btn btn-outline-dark w-100 py-3 fw-semibold">發票查詢</a>
+          </div>
+          <div class="col-6">
+            <a href="#" class="btn btn-outline-dark w-100 py-3 fw-semibold">載具查詢</a>
+          </div>
+          <div class="col-6">
+            <a href="#" class="btn btn-outline-dark w-100 py-3 fw-semibold">線上報修</a>
+          </div>
+          <div class="col-6">
+            <a href="#" class="btn btn-outline-dark w-100 py-3 fw-semibold">申請服務 / API</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="included_footer"></div>
+
+    <a href="javascript:void(0)" class="scroll-top-btn" aria-label="回到頂端">
+      <i class="bi bi-arrow-up"></i>
+    </a>
+
+    <script src="jquery/dist/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="js/data-solution.js"></script>
+    <script src="js/components.js"></script>
+    <script>
+      var techServicesData = [
+        {
+          title    : 'API串接',
+          body     : 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea',
+          image    : 'img/placeholder_accordion.svg',
+          ctaModal : true,
+          ctaLink  : '#'   /* 填入 API 串接說明頁網址後，將上方ctaModal改為false或註釋 */
+        },
+        {
+          title    : '發票代理程式',
+          body     : 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+          image    : '',
+          ctaModal : true,
+          ctaLink  : '#'   /* 填入 API 串接說明頁網址後，將上方ctaModal改為false或註釋 */
+        },
+        {
+          title    : '測試環境、正式環境',
+          body     : 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+          image    : '',
+          ctaModal : false,
+          ctaLink  : '#'   /* 填入 API 串接說明頁網址後，將上方ctaModal改為false或註釋 */
+        }
+      ];
+
+      $(function(){
+var _loaderTimer = setTimeout(hidePageLoader, 1500);
+        $('#included_navbar').load('template/_navbar.html', function() {
+          clearTimeout(_loaderTimer);
+          hidePageLoader();
+        });
+        $('#included_footer').load('template/_footer.html');
+
+        renderSectionTitle('page-title-tech', {
+          title: '技術支援',
+          decorated: true
+        });
+
+        renderPageAccordion('tech-services-accordion', techServicesData, 'techServicesAccordion');
+
+        /* ── 分段標籤平滑捲動 ──────────────────────────── */
+        $(document).on('click', '.tech-tab-btn', function(e) {
+          e.preventDefault();
+          var $target = $($(this).data('tech-target'));
+          if ($target.length) {
+            $('html, body').animate({ scrollTop: $target.offset().top - 80 }, 400);
+          }
+        });
+      });
+    </script>
+
+</body>
+</html>
+<!-- IMU089_群豐資訊科技_新版EINV網頁 version1.0 created by IMU Framework. 2026/04/29 -->

@@ -1,0 +1,524 @@
+/* ===========================================
+   Solution Page Shared Styles
+   Used by: EINV_solution1.html, EINV_solution2.html, EINV_solution3.html
+   =========================================== */
+
+/* ---- Section Common ---- */
+.section-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.section-heading::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--color-brand-dark);
+  flex-shrink: 0;
+}
+
+.section-subheading {
+  font-size: 0.93rem;
+  color: var(--bs-secondary);
+  margin-bottom: 2.5rem;
+}
+
+/* ---- 方案專屬按鈕（取代 btn-primary，顏色隨方案變化）---- */
+/* .btn.btn-solution 雙類選擇器 (0,2,0) 高過 Bootstrap 的 a.btn (0,1,1)，確保 default state 不被蓋掉 */
+.btn.btn-solution {
+  background-color: var(--_solution-color, var(--bs-gray-500));
+  border-color:     var(--_solution-color, var(--bs-gray-500));
+  color: #ffffff;
+}
+.btn.btn-solution:hover,
+.btn.btn-solution:focus {
+  background-color: var(--color-brand-navy);
+  background-color: hsl(from var(--_solution-color, var(--bs-gray-500)) calc(h + 180) s l);
+  border-color:     var(--color-brand-navy);
+  border-color:     hsl(from var(--_solution-color, var(--bs-gray-500)) calc(h + 180) s l);
+  color: #ffffff;
+}
+.btn.btn-solution:active {
+  box-shadow: inset 0 0 0 100px rgba(0, 0, 0, 0.22);
+  background-color: var(--_solution-color, var(--bs-gray-500));
+  border-color:     var(--_solution-color, var(--bs-gray-500));
+  color: #ffffff;
+}
+
+/* ---- Section 1: Hero ---- */
+.solution-hero {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  background-color: var(--color-bg-page);
+}
+
+.solution-breadcrumb .breadcrumb-item a {
+  color: var(--bs-secondary);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.solution-breadcrumb .breadcrumb-item.active {
+  color: var(--bs-gray-700);
+  font-size: 0.85rem;
+}
+
+.solution-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  color: var(--bs-gray-500);
+  font-size: 0.85rem;
+}
+
+.solution-hero-badge {
+  display: inline-block;
+  background-color: var(--_solution-color, var(--bs-gray-500));
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.65rem;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.solution-hero h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 0.9rem;
+  color: var(--color-brand-dark);
+}
+
+.solution-hero .hero-subtitle {
+  font-size: 1rem;
+  color: var(--bs-secondary);
+  margin-bottom: 2rem;
+  max-width: 440px;
+}
+
+.solution-hero-img-wrap {
+  width: 540px;
+  height: 360px;
+  overflow: hidden;
+}
+
+.solution-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.solution-hero-placeholder {
+  background-color: var(--bs-gray-200);
+  border-radius: 16px;
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bs-gray-500);
+  font-size: 0.82rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* ---- Section 2: Features ---- */
+.solution-features {
+  background-color: #ffffff;
+  padding: 70px 0;
+}
+
+.feature-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: rgba(var(--_solution-color-rgb, 239, 117, 24), 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.9rem;
+  font-size: 1.4rem;
+  color: var(--_solution-color, var(--color-accent-orange));
+}
+
+.feature-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: var(--color-brand-dark);
+}
+
+.feature-desc {
+  font-size: 0.82rem;
+  color: var(--bs-secondary);
+  line-height: 1.5;
+}
+
+
+/* ---- Section 3: Process ---- */
+.solution-process {
+  background-color: var(--color-bg-page);
+  padding: 70px 0;
+}
+
+.process-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.process-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  max-width: 160px;
+}
+
+.process-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--_solution-color, var(--color-brand-navy));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.82rem;
+  margin-bottom: 0.9rem;
+  flex-shrink: 0;
+  line-height: 1.25;
+  text-align: center;
+  padding: 0.4rem;
+}
+
+.process-circle.accent {
+  background-color: var(--color-brand-navy);
+  background-color: hsl(from var(--_solution-color, var(--color-brand-navy)) calc(h + 180) s l);
+}
+
+.process-arrow-col {
+  flex-shrink: 0;
+  padding-top: 28px;
+  color: var(--bs-secondary);
+  font-size: 1.4rem;
+  margin: 0 4px;
+  line-height: 1;
+}
+
+.process-step-title {
+  font-weight: 700;
+  font-size: 0.88rem;
+  margin-bottom: 0.25rem;
+  color: var(--color-brand-dark);
+}
+
+.process-step-desc {
+  font-size: 0.77rem;
+  color: var(--bs-secondary);
+  line-height: 1.55;
+}
+
+@media (max-width: 575px) {
+  .process-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .process-arrow-col {
+    transform: rotate(90deg);
+    padding-top: 0;
+    margin: 4px 0;
+  }
+  .process-step {
+    max-width: 220px;
+    width: 100%;
+  }
+}
+
+/* ---- Section 4: Tech ---- */
+.solution-tech {
+  background-color: #ffffff;
+  padding: 70px 0;
+}
+
+.solution-tech .nav-tabs {
+  border-bottom: none;
+}
+
+.solution-tech .nav-tabs .nav-link {
+  color: var(--bs-gray-700);
+  border: none;
+  border-radius: 8px 8px 0 0;
+  background: var(--bs-gray-200);
+  margin-right: 4px;
+  padding: 0.45rem 1.4rem;
+  font-weight: 500;
+  font-size: 0.88rem;
+}
+
+.solution-tech .nav-tabs .nav-link.active {
+  background: var(--color-brand-dark);
+  color: #ffffff;
+  border: none;
+}
+
+.solution-tech .nav-tabs .nav-link:not(.active):hover {
+  background: var(--bs-gray-300);
+}
+
+.tech-content-area {
+  background: var(--bs-gray-100);
+  border-radius: 0 12px 12px 12px;
+  padding: 2.5rem;
+}
+
+/* Tech feature list */
+.tech-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tech-feature-list li {
+  font-size: 0.9rem;
+  padding: 0.3rem 0;
+  color: var(--bs-gray-800);
+  display: flex;
+  align-items: flex-start;
+  line-height: 1.5;
+}
+
+.tech-feature-list li::before {
+  content: "•";
+  color: var(--_solution-color, var(--color-brand-navy));
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1.2;
+  flex-shrink: 0;
+  margin-right: 0.5rem;
+}
+
+/* Simple flow diagram - 對店家 */
+.tech-flow-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-flow-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 90px;
+}
+
+.tech-flow-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  color: var(--_solution-color, var(--color-brand-navy));
+  margin-bottom: 0.5rem;
+}
+
+.tech-flow-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--bs-gray-800);
+  line-height: 1.3;
+}
+
+.tech-flow-arrow {
+  color: var(--bs-secondary);
+  font-size: 1.4rem;
+  margin: 0 10px;
+  padding-bottom: 22px;
+  flex-shrink: 0;
+}
+
+/* IT architecture diagram - 對IT人員 */
+.it-arch-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.it-arch-box {
+  flex: 1;
+  max-width: 240px;
+  border: 2px solid var(--bs-gray-400);
+  border-radius: 10px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  background: white;
+}
+
+.it-arch-box.highlight {
+  background: var(--color-brand-navy);
+  border-color: var(--color-brand-navy);
+}
+
+.it-arch-box-title {
+  font-weight: 700;
+  font-size: 0.88rem;
+  margin-bottom: 0.35rem;
+  color: var(--color-brand-dark);
+}
+
+.it-arch-box.highlight .it-arch-box-title {
+  color: white;
+}
+
+.it-arch-box-desc {
+  font-size: 0.75rem;
+  color: var(--bs-secondary);
+  line-height: 1.4;
+}
+
+.it-arch-box.highlight .it-arch-box-desc {
+  color: var(--bs-gray-300);
+}
+
+.it-arch-arrow {
+  color: var(--bs-secondary);
+  font-size: 1.4rem;
+  margin: 0 8px;
+  flex-shrink: 0;
+}
+
+.it-arch-caption {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--bs-secondary);
+  font-weight: 500;
+}
+
+@media (max-width: 767px) {
+  .it-arch-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .it-arch-box {
+    width: 80%;
+    max-width: 280px;
+  }
+  .it-arch-arrow {
+    transform: rotate(90deg);
+    margin: 8px 0;
+  }
+  .tech-flow-diagram {
+    flex-direction: column;
+  }
+  .tech-flow-arrow {
+    transform: rotate(90deg);
+    padding-bottom: 0;
+    margin: 4px 0;
+  }
+}
+
+/* ---- Section 5: FAQ ---- */
+.solution-faq {
+  background-color: var(--color-bg-page);
+  padding: 70px 0;
+}
+
+.solution-faq .accordion-item {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--bs-gray-300);
+}
+
+.solution-faq .accordion-item:first-of-type {
+  border-top: 1px solid var(--bs-gray-300);
+  border-radius: 0;
+}
+
+.solution-faq .accordion-item:last-of-type {
+  border-radius: 0;
+}
+
+.solution-faq .accordion-button {
+  background: transparent;
+  color: var(--color-brand-dark);
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: none;
+  padding: 1.1rem 0;
+  gap: 0.6rem;
+}
+
+.solution-faq .accordion-button:not(.collapsed) {
+  color: var(--color-brand-dark);
+  background: transparent;
+  box-shadow: none;
+}
+
+.solution-faq .accordion-button:focus {
+  box-shadow: none;
+}
+
+.faq-q-icon {
+  color: var(--bs-secondary);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  display: inline-flex;
+}
+
+.solution-faq .accordion-body {
+  padding: 0.25rem 0 1.5rem 1.75rem;
+  font-size: 0.88rem;
+  color: var(--bs-gray-700);
+  line-height: 1.75;
+}
+
+/* ---- page-accordion padding（解決方案頁略緊湊）---- */
+.solution-faq .page-accordion .accordion-button {
+  padding: 1rem 1.25rem;
+}
+
+/* ---- 數字圓圈對齊微調（方案頁專用）---- */
+.solution-faq .service-num {
+  position: relative;
+  top: -1px;
+}
+
+.solution-faq .page-accordion .accordion-body {
+  padding: 1.5rem 1.75rem;
+  background-color: #ffffff;
+  font-size: 1rem;
+  color: var(--bs-body-color);
+  line-height: inherit;
+}
+
+/* ---- Section 6: CTA ---- */
+.solution-cta {
+  background-color: #ffffff;
+  padding: 70px 0;
+}
+
+.solution-cta h2 {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  margin-bottom: 0.35rem;
+}
+
+.solution-cta .cta-subtitle {
+  color: var(--bs-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}

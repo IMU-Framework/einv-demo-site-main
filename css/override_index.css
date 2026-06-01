@@ -1,0 +1,98 @@
+/**
+ * override_index.css - index.html 頁面佈局微調
+ *
+ * 組件樣式（卡片、標題、圖示等）已移至 css/components.css
+ * 此檔案只存放首頁專屬的版面配置調整
+ */
+
+/* ============================================
+   Hero Section 輕背景
+   ============================================ */
+#test-hero {
+}
+
+/* ============================================
+   Banner 輪播容器與指示點
+   ============================================ */
+#bannerCarousel .carousel-inner {
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+#bannerCarousel .carousel-indicators {
+  position: static;
+  margin: 0.5rem 0 0;
+}
+
+#bannerCarousel .carousel-indicators [data-bs-target] {
+  background-color: #888;
+}
+
+/* ============================================
+   Banner 說明文字（全尺寸顯示，手機縮小）
+   ============================================ */
+.banner-caption {
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+.banner-caption__title {
+  font-size: 1rem;
+}
+.banner-caption__text {
+  font-size: 0.8rem;
+}
+
+@media (min-width: 768px) {
+  .banner-caption {
+    padding: 1rem 1.5rem;
+  }
+  .banner-caption__title {
+    font-size: 1.75rem;
+  }
+  .banner-caption__text {
+    font-size: 1rem;
+  }
+}
+
+/* ============================================
+   服務方案 Slick 容器 padding — 三段式 RWD
+   桌面：3rem 讓 chevron 落在留白區
+   平板：1rem 避免兩欄卡片過窄
+   手機：0 全寬顯示
+   ============================================ */
+@media (min-width: 992px) {
+  #solution-cards { padding: 0 3rem; }
+}
+
+@media (min-width: 640px) and (max-width: 991.98px) {
+  #solution-cards { padding: 0 1rem; }
+}
+
+@media (max-width: 639.98px) {
+  #solution-cards { padding: 0; }
+}
+
+/* ============================================
+   成功案例見證「看更多案例」按鈕 — 與 role-card pill 同等邊框粗細
+   ============================================ */
+#test-section-7 .btn-outline-dark {
+  border-width: 2px;
+}
+
+/* ============================================
+   各 Section 間距（手機縮小）
+   ============================================ */
+@media (max-width: 767.98px) {
+  #test-hero,
+  #test-section-3,
+  #test-section-4,
+  #test-section-5,
+  #test-section-6,
+  #test-section-7 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+}

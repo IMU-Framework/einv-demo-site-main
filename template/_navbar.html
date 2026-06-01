@@ -1,0 +1,532 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="css/main.min.css">
+  <link rel="stylesheet" href="css/override_common.css"> -->
+  <link rel="stylesheet" href="css/override_common.css">
+  <style>
+    .error {
+      color: red;
+    }
+  </style>
+  <title>Document</title>
+
+</head>
+<body>
+
+
+<!-- navbar -->
+<nav class="navbar navbar-expand-md bg-light navbar-light px-3 m-1 m-md-3 fixed-top rounded-5" id="navbar-top">
+  <div class="container-fluid">
+
+    <a href="index.html" class="navbar-brand ">
+      <img src="img/brand/logo-circle.svg" alt="" class="w-100" id="EMIS-top-banner">
+      <!-- 群豐資訊科技 -->
+    </a>
+
+    <button class="navbar-toggler btn-sm"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navmenu"
+
+    >
+      <span class="navbar-toggler-icon btn-sm"></span>
+
+    </button>
+
+
+    <div class="collapse navbar-collapse bg-light" id="navmenu">
+      <ul class="navbar-nav ms-auto">
+
+        <!-- menu 1 -->
+        <li class="nav-item dropdown mx-2 mx-xl-3 ">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown"
+             aria-expanded="false">
+            解決方案
+          </a>
+          <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown1">
+            <li><a class="dropdown-item" href="/pages/EINV_solution_overview.html">解決方案一覽</a></li>
+            <hr class="dropdown-divider">
+            <span id="navbar-solution-items"></span>
+          </ul>
+        </li>
+
+        <!-- menu 2 -->
+        <li class="nav-item dropdown mx-2 mx-xl-3">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown"
+             aria-expanded="false">
+            成功案例
+          </a>
+          <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown2">
+            <li><a class="dropdown-item" href="/pages/EINV_case_overview.html">知名客戶見證</a></li>
+            <hr class="dropdown-divider">
+            <li><a class="dropdown-item" href="/pages/EINV_case1.html" data-bs-toggle="tooltip" data-bs-placement="right" title="連鎖咖啡品牌，打造穩定又有彈性的門市營運流程">黑沃咖啡</a></li>
+            <li><a class="dropdown-item" href="/pages/EINV_case2.html" data-bs-toggle="tooltip" data-bs-placement="right" title="日式餐飲品牌，用系統撐起尖峰時段的出餐效率">長田本庄軒</a></li>
+            <li><a class="dropdown-item" href="/pages/EINV_case3.html" data-bs-toggle="tooltip" data-bs-placement="right" title="連鎖藥妝零售，穩定支撐高頻交易與門市一致性">松本清</a></li>
+            <li><a class="dropdown-item" href="/pages/EINV_case4.html" data-bs-toggle="tooltip" data-bs-placement="right" title="商品種類多樣，讓收銀與管理回歸簡單">久大文具</a></li>
+            <li><a class="dropdown-item" href="/pages/EINV_case5.html" data-bs-toggle="tooltip" data-bs-placement="right" title="免 POS 輕鬆合規，餐飲門市順利完成電子發票上線">中型餐飲門市</a></li>
+            <li><a class="dropdown-item" href="/pages/EINV_case6.html" data-bs-toggle="tooltip" data-bs-placement="right" title="他牌 POS 系統，快速導入電子發票不中斷營運">客製案例一</a></li>
+            <li><a class="dropdown-item" href="/pages/EINV_case7.html" data-bs-toggle="tooltip" data-bs-placement="right" title="多業務型態門市，發票配號清楚又好管理">客製案例二</a></li>
+            <li><a class="dropdown-item" href="/pages/EINV_case8.html" data-bs-toggle="tooltip" data-bs-placement="right" title="即時取號開立，滿足高即時性交易需求">客製案例三</a></li>
+          </ul>
+        </li>
+
+        <!-- menu 3 -->
+        <li class="nav-item mx-2 mx-xl-3">
+          <a class="nav-link" href="/pages/EINV_tech_support.html">
+            技術支援
+          </a>
+        </li>
+
+        <!-- menu 4 -->
+        <li class="nav-item dropdown mx-2 mx-xl-3">
+          <a class="nav-link" href="/pages/EINV_faq.html">
+            常見問題
+          </a>
+        </li>
+
+      </ul>
+
+      <div class="d-flex align-items-center ms-3">
+        <a class="btn btn-brand-navy btn-sm" href="#" data-bs-toggle="modal" data-bs-target="#contactform">立即諮詢</a>
+      </div>
+
+    </div>
+    <!-- <li class="nav-item">
+        <a href="" class="nav-link">another</a>
+    </li> -->
+  </div>
+</nav>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="alert" style="z-index: 999999">
+  <div class="modal-dialog" id="myModalDialog" style="border: 1px solid red;">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+<!--        <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+        <h4 id="myModalTitle" class="modal-title">ℹ️ 提示訊息</h4>
+      </div>
+      <div class="modal-body">
+        <p id="msg">Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"
+                onclick='closeAlert();'>關閉</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="modal fade" id="contactform" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">✍ 需求諮詢表單</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id = "contactformclose"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" id="FORM1">
+          <div class="mb-3">
+            <label for="InputCompanyName" class="form-label">公司／品牌／商店名稱 <span style="color: red; font-size: 18px;"> *</span></label>
+            <input type="" class="form-control" placeholder="" id="InputCompanyName" aria-describedby="emailHelp">
+            <div class="messages"></div>
+          </div>
+
+          <div class="mb-3">
+            <label for="InputContactName" class="form-label">聯絡人姓名 <span style="color: red; font-size: 18px;"> *</span></label>
+            <input type="" class="form-control" placeholder="" id="InputContactName" aria-describedby="emailHelp">
+            <div class="messages"></div>
+          </div>
+
+
+          <div class="form-group mb-3">
+            <label for="InputEmail" class="form-label">Email <span style="color: red; font-size: 18px;"> *</span></label>
+            <input type="email" class="form-control" placeholder="" id="InputEmail" name="InputEmail"
+                   aria-describedby="emailHelp" required>
+            <div class="messages"></div>
+          </div>
+
+          <div class="mb-3">
+            <label for="InputCompanyPhone" class="form-label">公司電話</label>
+            <input type="tel" pattern="[0-9\-]+" class="form-control" placeholder="" id="InputCompanyPhone" aria-describedby="emailHelp">
+            <div class="messages"></div>
+          </div>
+
+          <div class="mb-3">
+            <label for="InputMobilePhone" class="form-label">行動電話 <span style="color: red; font-size: 18px;"> *</span></label>
+            <input type="tel" class="form-control" placeholder="" id="InputMobilePhone" aria-describedby="emailHelp">
+            <div class="messages"></div>
+          </div>
+
+          <div class="mb-3">
+            <label for="InputIndustry" class="form-label">行業別 <span style="color: red; font-size: 18px;"> *</span></label>
+            <select class="form-select form-select-md mb-3" placeholder="" aria-label=".form-select-md example"
+                    id="InputIndustry">
+              <!-- <option selected>Open this select menu</option> -->
+              <option disabled hidden selected id="contact_dropdown_placeholder"></option>
+              <option value="1">醫藥美容</option>
+              <option value="2">圖書文教</option>
+              <option value="3">綜合百貨</option>
+              <option value="4">商品專賣</option>
+              <option value="5">服飾時尚</option>
+              <option value="6">科技數位</option>
+              <option value="7">食品餐飲</option>
+              <option value="8">休閒旅遊</option>
+              <option value="9">機構學校</option>
+              <option value="10">流通業</option>
+              <option value="11">其他</option>
+            </select>
+            <div class="messages"></div>
+          </div>
+
+          <div class="mb-3">
+            <label for="InputArea" class="form-label">所在地區 <span style="color: red; font-size: 18px;"> *</span></label>
+            <select class="form-select form-select-md mb-3" placeholder="" aria-label=".form-select-md example"
+                    id="InputArea">
+              <!-- <option selected>Open this select menu</option> -->
+              <option disabled hidden selected id="contact_dropdown_placeholder"></option>
+              <option value="1">北部（北／基／宜／桃）</option>
+              <option value="2">中部（竹／中／投／雲）</option>
+              <option value="3">南部（嘉／南／高／屏）</option>
+              <option value="4">其他（東／澎／馬）</option>
+              <option value="5">全台皆有</option>
+            </select>
+            <div class="messages"></div>
+          </div>
+
+          <div class="mb-3">
+            <label for="InputStoreType" class="form-label">營業類型 <span style="color: red; font-size: 18px;"> *</span></label>
+            <select class="form-select form-select-md mb-3" placeholder="" aria-label=".form-select-md example"
+                    id="InputStoreType">
+              <!-- <option selected>Open this select menu</option> -->
+              <option disabled hidden selected id="contact_dropdown_placeholder"></option>
+              <option value="1">直營</option>
+              <option value="2">加盟</option>
+              <option value="3">直營＆加盟</option>
+              <option value="4">百貨專櫃</option>
+              <option value="5">其他</option>
+            </select>
+            <div class="messages"></div>
+          </div>
+
+          <div class="mb-3">
+            <label for="InputStoreNum" class="form-label">實體門市數量 <span style="color: red; font-size: 18px;"> *</span></label>
+            <select class="form-select form-select-md mb-3" placeholder="" aria-label=".form-select-md example"
+                    id="InputStoreNum">
+              <!-- <option selected>Open this select menu</option> -->
+              <option disabled hidden selected id="contact_dropdown_placeholder"></option>
+              <option value="1">單店門市</option>
+              <option value="2">5家以下</option>
+              <option value="3">6~10家</option>
+              <option value="3">11~20家</option>
+              <option value="3">20家以上</option>
+            </select>
+            <div class="messages"></div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">想了解的產品<span style="color: red; font-size: 18px;"> *</span>（可複選）</label>
+            <input type="hidden" id="InputChoose1">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="InputItems" id="inlineCheckbox1" value="1">
+              <label class="form-check-label" for="inlineCheckbox1">POS系統</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="InputItems" id="inlineCheckbox2" value="2">
+              <label class="form-check-label" for="inlineCheckbox2">雲端POS租賃服務</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="InputItems" id="inlineCheckbox3" value="3">
+              <label class="form-check-label" for="inlineCheckbox3">POS客製化開發服務</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="InputItems" id="inlineCheckbox4" value="4">
+              <label class="form-check-label" for="inlineCheckbox4">電子發票加值服務</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="InputItems" id="inlineCheckbox5" value="5">
+              <label class="form-check-label" for="inlineCheckbox5">POS機與周邊硬體設備</label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="InputItems" id="inlineCheckbox6" value="6">
+              <label class="form-check-label" for="inlineCheckbox6">其他</label>
+            </div>
+            <div class="messages"></div>
+
+            <!--
+                        <select class="form-select" multiple aria-label="multiple select example" id="InputChoose1">
+                          &lt;!&ndash; <option selected>Open this select menu</option> &ndash;&gt;
+                          <option value="1">POS系統</option>
+                          <option value="2">雲端POS租賃服務</option>
+                          <option value="3">POS客製化開發服務</option>
+                          <option value="4">電子發票加值服務</option>
+                          <option value="5">POS機與周邊硬體設備</option>
+                          <option value="6">其他</option>
+                        </select>
+            -->
+            <div class="messages"></div>
+          </div>
+
+          <div class="mb-3">
+            <label for="InputRemark" class="form-label">還有什麼是我們能為您服務的？</label>
+            <textarea class="form-control" rows="5" id="InputRemark"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer d-flex justify-content-evenly">
+        <button type="button" class="btn btn-secondary rounded-pill px-5" id="btnClear">清空</button>
+        <button type="button" class="btn btn-info text-light rounded-pill px-5" id="btnOK">送出</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- footer -->
+
+<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script> -->
+</body>
+<script>
+  function closeAlert() {
+    $("#myModal").modal("hide");
+    if ($('#myModalTitle').text() == "✅ 填寫完成") {
+      $("#contactform").modal("hide");
+    } else {
+      $("#contactform").modal("show");
+    }
+  }
+
+  $(document).ready(function () {
+    if (typeof solutionData !== 'undefined') {
+      var solHtml = '';
+      solutionData.forEach(function(s) {
+        if (s.active === false) return;
+        var isPlaceholder = !!s.isPlaceholder;
+        var href = isPlaceholder ? '#' : ('/' + s.link);
+        if (isPlaceholder) {
+          solHtml += '<li><span data-bs-toggle="tooltip" data-bs-placement="right" title="' + s.tag + '"><a class="dropdown-item disabled" href="' + href + '">' + s.name + '</a></span></li>';
+        } else {
+          solHtml += '<li><a class="dropdown-item" href="' + href + '" data-bs-toggle="tooltip" data-bs-placement="right" title="' + s.tag + '">' + s.name + '</a></li>';
+        }
+      });
+      $('#navbar-solution-items').html(solHtml);
+    }
+
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function(el) {
+      new bootstrap.Tooltip(el);
+    });
+
+    if (window.location.href.indexOf("http://localhost") >= 0) {
+      $("#InputCompanyName").val("群豐資訊科技股份有限公司");
+      $("#InputContactName").val("王大明");
+      $("#InputMobilePhone").val("0912345678");
+      $("#InputEmail").val("jerry@mail.emis.com.tw");
+      $("#InputArea").val("1");
+      $("#InputIndustry").val("1");
+      $("#InputStoreType").val("1");
+      $("#InputStoreNum").val("2");
+    }
+
+    // 清空start
+    let clear = document.getElementById("btnClear");
+    clear.addEventListener("click", (e) => {
+      InputCompanyName.value = "";
+      InputContactName.value = "";
+      InputEmail.value = "";
+      InputCompanyPhone.value = "";
+      InputMobilePhone.value = "";
+      InputIndustry.value = "";
+      InputArea.value = "";
+      InputStoreType.value = "";
+      InputStoreNum.value = "";
+      inlineCheckbox1.checked = false;
+      inlineCheckbox2.checked = false;
+      inlineCheckbox3.checked = false;
+      inlineCheckbox4.checked = false;
+      inlineCheckbox5.checked = false;
+      inlineCheckbox6.checked = false;
+      InputRemark.value = "";
+    });
+    // 清空end
+
+    $("#btnOK").click(function (event) {
+      submitForm();
+      return false;
+    });
+
+    function empty(value) {
+      return (value == null || "" == value);
+    }
+
+    function validate_error(sID, sMsg) {
+      let _sMsg = "";
+      let _iError = 0;
+      let _sValue = $(sID).val();
+      //console.log(sID + "=" + _sValue + "$");
+      if (_sValue == "" || _sValue == null || _sValue == "null") {
+        $(sID).next().html("<span class='error'>" + sMsg + "</span>");
+        let _iIndex = sMsg.indexOf(" ");
+        _sMsg = sMsg.substring(0, _iIndex+1);
+        _iError = 1;
+      } else {
+        $(sID).next().html("");
+        if (sID == "#InputEmail") {
+          let EmailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+          let _isValid = EmailRegex.test(_sValue);
+          //console.log(_isValid)
+          if (!_isValid) {
+            $(sID).next().html("<span class='error'>Email格式錯誤</span>");
+            _sMsg = "Email格式錯誤 ";
+            _iError = 1;
+          }
+        }
+      }
+      return _sMsg;
+    }
+
+    $("#InputCompanyName").blur(() => {
+      validate_error("#InputCompanyName", "公司/品牌/商店 必須輸入");
+    });
+    $("#InputEmail").blur(() => {
+      validate_error("#InputEmail", "Email 必須輸入");
+    });
+    $("#InputContactName").blur(() => {
+      validate_error("#InputContactName", "姓名 必須輸入");
+    });
+    $("#InputMobilePhone").blur(() => {
+      validate_error("#InputMobilePhone", "行動電話 必須輸入");
+    });
+    $("#InputIndustry").blur(() => {
+      validate_error("#InputIndustry", "行業別 必須輸入");
+    });
+    $("#InputArea").blur(() => {
+      validate_error("#InputArea", "所在地區 必須輸入");
+    });
+    $("#InputStoreType").blur(() => {
+      validate_error("#InputStoreType", "營業類型 必須輸入");
+    });
+    $("#InputStoreNum").blur(() => {
+      validate_error("#InputStoreNum", "實體門市數目 必須輸入");
+    });
+
+    function submitForm() {
+      let _sCompany = $("#InputCompanyName").val();
+      let _sName = $("#InputContactName").val();
+      let _sMobile = $("#InputMobilePhone").val();
+      let _sTel = $("#InputCompanyPhone").val();
+      let _sEmail = $("#InputEmail").val();
+      let _sArea = $("#InputArea").val();
+      let _sIndustry = $("#InputIndustry").val();
+      let _sType = $("#InputStoreType").val();
+      let _sNum = $("#InputStoreNum").val();
+      let _sRemark = $("#InputRemark").val();
+      let _sChoose1 = "";
+      if (document.all.InputItems[0].checked) _sChoose1 += "1,";
+      if (document.all.InputItems[1].checked) _sChoose1 += "2,";
+      if (document.all.InputItems[2].checked) _sChoose1 += "3,";
+      if (document.all.InputItems[3].checked) _sChoose1 += "4,";
+      if (document.all.InputItems[4].checked) _sChoose1 += "5,";
+      if (document.all.InputItems[5].checked) _sChoose1 += "6,";
+      //alert("@@_navbar.html #416 _sChoose1=" + _sChoose1);
+
+      let _sMsg = "";
+      let _iError = 0;
+
+      _sMsg = validate_error("#InputCompanyName", "公司/品牌/商店 必須輸入");
+      _sMsg += validate_error("#InputContactName", "姓名 必須輸入");
+      _sMsg += validate_error("#InputEmail", "Email 必須輸入");
+      _sMsg += validate_error("#InputMobilePhone", "行動電話 必須輸入");
+      _sMsg += validate_error("#InputIndustry", "行業別 必須輸入");
+      _sMsg += validate_error("#InputArea", "所在地區 必須輸入");
+      _sMsg += validate_error("#InputStoreType", "營業類型 必須輸入");
+      _sMsg += validate_error("#InputStoreNum", "實體門市數量 必須輸入");
+      if (_sChoose1 == "") {
+        _iError++;
+        _sMsg += "想了解的產品";
+      }
+      if (_sMsg != "") {
+        //alert("下列資料必須填寫：\n\n" + _sMsg)
+        $('#myModal').modal("hide");
+        _sMsg = "資料填寫不完整，請檢查輸入資料：<br><br>  " + _sMsg;
+        $("#msg").html(_sMsg);
+        let _sIcon = "<span style='color:red'>⚠️</span>";
+        $('#myModalTitle').html(_sIcon + "️️ 填寫未完成");
+        $('#myModalDialog').css("border", "2px solid red");
+        $("#contactform").modal("hide");
+        $('#myModal').modal("show");
+        return;
+      }
+
+      let data = {
+        "from": "www",
+        "company": _sCompany,
+        "name": _sName,
+        "mobile": _sMobile,
+        "tel": _sTel,
+        "email": _sEmail,
+        "area": _sArea,
+        "industry": _sIndustry,
+        "store_type": _sType,
+        "stores_num": _sNum,
+        "choose1": _sChoose1,
+        "remark": _sRemark
+      };
+      console.log(data);
+      let _sURL = "https://lms-t.emis.com.tw/lms/ws/www/data1";
+      if (window.location.href.indexOf("localhost") > 0) {
+        _sURL = "http://www.emis.com.tw:8080/mis/ws/www/data1";
+      }
+      $.ajax({
+        type: "POST",
+        dataType: "json",
+        contentType: 'application/json',
+        url: _sURL,
+        crossOrigin: true,
+        cache: false,
+        data: JSON.stringify(data),
+        success: function (response) {
+          // console.log("@@_navbar.html #327 response code=" + response.code + " message=" + response.message);
+          if (response.code == "0") {
+            $("#contactform").modal('hide');
+            //alert("感謝您的填寫，我們會盡快與您聯絡。");
+            $("#msg").html("感謝您的填寫，我們會盡快與您聯絡。");
+            $('#myModalTitle').text("✅ 填寫完成");
+            $('#myModalDialog').css("border", "2px solid green");
+            $('#myModal').modal("show");
+          } else {
+            if (response.message.indexOf(" PRIMARY KEY ") > 0) {
+              let _sMsg = "發生錯誤 (" + response.code + ")：\n\n" + "聯絡資料已經輸入過了。";
+              //alert(_sMsg);
+              $("#contactform").modal("hide");
+              $("#msg").html(_sMsg);
+              $('#myModalTitle').text("⚠️ 填寫未完成");
+              $('#myModalDialog').css("border", "2px solid red");
+              $('#myModal').modal("show");
+            } else {
+              let _sMsg = "發生錯誤 (" + response.code + ")：\n\n" + response.message;
+              //alert(_sMsg);
+              $("#contactform").modal("hide");
+              $("#msg").html(_sMsg);
+              $('#myModalTitle').text("⚠️ 填寫未完成");
+              $('#myModalDialog').css("border", "2px solid red");
+              $('#myModal').modal("show");
+            }
+          }
+        },
+        error: function (e) {
+          alert("Error " + e.message);
+        }
+      });
+    }
+  });
+</script>
+</html>
+<!-- IMU089_群豐資訊科技_新版EINV網頁 version1.0 created by IMU Framework. 2026/04/29 -->
+

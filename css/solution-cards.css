@@ -1,0 +1,323 @@
+/* ===========================================
+   Solution Cards — Cross-page Solution UI Components
+   Used by: index.html, EINV_solution_overview.html,
+            EINV_case_overview.html, EINV_case1~5.html
+
+   色彩機制：各方案色由 data-solution.js 定義，JS 渲染時以
+   inline style 設定 --_solution-color 與 --_solution-color-rgb
+   於最外層容器，子元素 CSS 繼承並推導陰影、透明度等變化。
+   =========================================== */
+
+/* ============================================
+   方案卡片 - Solution Card
+   ============================================ */
+.solution-card {
+  border-radius: 1.25rem;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  min-height: 280px;
+  border: 3px solid var(--bs-gray-200);
+  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* mt-auto 在 justify-content:center 下會吸走剩餘空間導致置中失效，需覆蓋 */
+.solution-card .btn.mt-auto {
+  margin-top: 1.5rem;
+}
+
+/* 按鈕寬度隨卡片延伸（卡片 padding 自然形成縮窄效果）*/
+.solution-card .btn {
+  align-self: stretch;
+}
+
+.solution-card:hover {
+  box-shadow: 0 0.75rem 1.75rem rgba(0, 0, 0, 0.12);
+}
+
+/* Badge — 顏色、背景、框線全部由 --_solution-color 推導 */
+.solution-card__tag {
+  display: inline-flex;
+  align-self: center;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background-color: rgba(var(--_solution-color-rgb, 128, 128, 128), 0.1);
+  color: var(--_solution-color, var(--bs-gray-500));
+  border: 1px solid rgba(var(--_solution-color-rgb, 128, 128, 128), 0.3);
+  margin-bottom: 1.25rem;
+}
+
+/* Placeholder badge（灰）*/
+.solution-card--placeholder .solution-card__tag {
+  background-color: var(--bs-gray-200);
+  color: var(--bs-secondary);
+  border: none;
+}
+
+/* 各方案卡片：框色、陰影（顏色由 --_solution-color 驅動）*/
+.solution-card:not(.solution-card--placeholder) {
+  border-color: var(--_solution-color, var(--bs-gray-500));
+  box-shadow: 0 0.5rem 1.25rem rgba(var(--_solution-color-rgb, 128, 128, 128), 0.12);
+}
+.solution-card:not(.solution-card--placeholder):hover {
+  box-shadow: 0 0.75rem 1.75rem rgba(var(--_solution-color-rgb, 128, 128, 128), 0.22);
+}
+
+.solution-card--placeholder {
+  border-color: var(--bs-gray-300);
+  box-shadow: none;
+  opacity: 0.72;
+}
+.solution-card--placeholder:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+/* icon 色繼承自 --_solution-color */
+.solution-card__icon           { color: var(--_solution-color, var(--bs-gray-500)); }
+.solution-card--placeholder .solution-card__icon { color: var(--bs-secondary); }
+
+/* 配圖為圖片檔時 */
+.solution-card__img {
+  display: block;
+  height: 5.25rem;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.solution-card__title {
+  font-size: 1.375rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.solution-card__text {
+  color: var(--bs-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+/* Slick 輪播容器（> 3 筆方案時自動啟用）*/
+.slick-carousel {
+  margin: 0 -15px;
+  margin-bottom: -4rem;
+}
+
+/* 比較卡片 Carousel 特定調整 */
+.compare-cards-carousel {
+  margin: 0 -20px;
+  margin-bottom: -4rem;
+}
+
+.slick-carousel .slick-dots {
+  left: 0;
+  right: 0;
+  width: auto;
+  text-align: center;
+}
+
+.slick-carousel .slick-slide {
+  padding: 0 15px;
+}
+
+.compare-cards-carousel .slick-slide {
+  padding: 0 20px;
+}
+
+@media (max-width: 575.98px) {
+  .slick-carousel .slick-slide {
+    padding: 0 6px;
+  }
+  .compare-cards-carousel .slick-slide {
+    padding: 0 10px;
+  }
+}
+
+.slick-carousel .slick-slide > div {
+  width: 100%;
+}
+
+.slick-carousel .slick-list {
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  padding-bottom: 4rem !important;
+}
+
+.compare-cards-carousel .slick-list {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: 4rem !important;
+}
+
+/* ============================================
+   方案卡片「了解更多」按鈕 — 繼承卡片的 --_solution-color
+   ============================================ */
+.btn.btn-outline-solution {
+  color:            var(--_solution-color, var(--bs-gray-500));
+  border-color:     var(--_solution-color, var(--bs-gray-500));
+  background-color: transparent;
+}
+.btn.btn-outline-solution:hover,
+.btn.btn-outline-solution:focus {
+  color:            #ffffff;
+  background-color: var(--_solution-color, var(--bs-gray-500));
+  border-color:     var(--_solution-color, var(--bs-gray-500));
+}
+
+/* 填充版（方案色底 + 白字；hover 深化） */
+.btn.btn-solution {
+  background-color: var(--_solution-color, var(--bs-gray-500));
+  border-color:     var(--_solution-color, var(--bs-gray-500));
+  color:            #ffffff;
+}
+.btn.btn-solution:hover,
+.btn.btn-solution:focus {
+  background-color: hsl(from var(--_solution-color, var(--bs-gray-500)) h s calc(l - 10));
+  border-color:     hsl(from var(--_solution-color, var(--bs-gray-500)) h s calc(l - 10));
+  color:            #ffffff;
+}
+.btn.btn-solution:active {
+  box-shadow:       inset 0 0 0 100px rgba(0,0,0,0.18);
+  background-color: var(--_solution-color, var(--bs-gray-500));
+  border-color:     var(--_solution-color, var(--bs-gray-500));
+  color:            #ffffff;
+}
+
+/* ============================================
+   Slick 箭頭覆寫 — 深灰色、放大、垂直對齊卡片
+   ============================================ */
+.slick-carousel .slick-prev,
+.slick-carousel .slick-next {
+  /* 50% 包含 .slick-list 的 padding-bottom: 4rem（dots 佔用）
+     扣掉一半 (2rem) 使箭頭對齊卡片垂直中心 */
+  top: calc(50% - 2rem);
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.slick-carousel .slick-prev::before,
+.slick-carousel .slick-next::before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  opacity: 1;
+}
+
+.slick-carousel .slick-prev::before {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%236c757d'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c%2fsvg%3e");
+}
+
+.slick-carousel .slick-next::before {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%236c757d'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c%2fsvg%3e");
+}
+
+/* ============================================
+   強調按鈕變體
+   ============================================ */
+.btn.btn-accent-orange {
+  color: #ffffff;
+  background-color: var(--color-accent-orange);
+  border-color: var(--color-accent-orange);
+}
+.btn.btn-accent-orange:hover,
+.btn.btn-accent-orange:focus {
+  color: #ffffff;
+  background-color: #d4660e;
+  border-color: #d4660e;
+}
+
+/* ============================================
+   方案比較卡片 - Compare Card
+   ============================================ */
+.compare-card {
+  border: 2px solid var(--_solution-color, #0d6efd);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Placeholder 方案卡片樣式 */
+.compare-card--placeholder {
+  border-color: var(--bs-gray-300);
+  box-shadow: none;
+  opacity: 0.72;
+}
+
+.compare-card__header {
+  padding: 1.5rem 1.25rem 1.25rem;
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+.compare-card__header .solution-card__tag {
+  margin-bottom: 0.75rem;
+}
+
+/* Placeholder badge 樣式 */
+.compare-card--placeholder .solution-card__tag {
+  background-color: var(--bs-gray-200);
+  color: var(--bs-secondary);
+  border: none;
+}
+
+.compare-card__name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  line-height: 1.2;
+}
+.compare-card__rows { flex: 1; }
+.compare-card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 1.25rem;
+  border-bottom: 1px solid #f0f0f0;
+  gap: 0.5rem;
+}
+.compare-card__row:last-child { border-bottom: none; }
+.compare-card__row-label {
+  font-size: 0.82rem;
+  color: #6c757d;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.compare-card__row-value {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #6c757d;
+  text-align: right;
+}
+.compare-card__row--highlight .compare-card__row-label,
+.compare-card__row--highlight .compare-card__row-value {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Placeholder 行項目 highlighter 顏色（灰色） */
+.compare-card--placeholder .compare-card__row--highlight {
+  background-color: color-mix(in srgb, var(--bs-gray-600) 60%, transparent) !important;
+}
+
+.compare-card__footer {
+  padding: 1.25rem;
+  text-align: center;
+  border-top: 1px solid #f0f0f0;
+}
+.compare-card__footer .btn {
+  min-width: 8rem;
+}
