@@ -284,6 +284,57 @@ function initNavbar() {
 }
 
 /* ============================================================
+   Footer 初始化
+   被載入的 footer 片段可能不會執行內嵌 script，故在此提供防護式初始化
+   包含：渲染聯絡資訊與綁定回到頂端按鈕
+   ============================================================ */
+function initFooter() {
+  try {
+    var fd = window.footerData || {
+      companyName: "群豐資訊科技股份有限公司",
+      copyrightSuffix: "All rights reserved.",
+      contacts: [
+        { id: "tp", label: "台北總公司", tel: "+886-2-2783-9488" },
+        { id: "tc", label: "台中事業部", tel: "+886-4-2233-6916" },
+        { id: "ks", label: "高雄分公司", tel: "+886-7-556-2998" }
+      ]
+    };
+
+    var deskContactArea = document.getElementById('footer-contact-info');
+    if (deskContactArea) {
+      deskContactArea.innerHTML = fd.contacts.map(function(item){
+        return '<div class="small" id="footer-contact-info-' + item.id + '">' + item.label + ' ' + item.tel + '</div>';
+      }).join('');
+    }
+    var fc = document.getElementById('footer-copyright');
+    if (fc) fc.innerHTML = 'Copyright &copy; ' + fd.companyName + ' ' + fd.copyrightSuffix;
+
+    var mobContactArea = document.getElementById('footer-contact-info-sm-container');
+    if (mobContactArea) {
+      mobContactArea.innerHTML = fd.contacts.map(function(item){
+        return '<div class="small text-muted" id="footer-contact-info-' + item.id + '-sm">' + item.label + ' ' + item.tel + '</div>';
+      }).join('');
+    }
+    var fcsm = document.getElementById('footer-copyright-sm');
+    if (fcsm) fcsm.innerHTML = 'Copyright &copy; ' + fd.companyName + '<br class="d-block d-sm-none"> ' + fd.copyrightSuffix;
+
+    // 綁定 footer 與全域的回到頂端按鈕
+    function bindScrollTop(selector) {
+      var el = document.querySelector(selector);
+      if (!el) return;
+      el.addEventListener('click', function(e){
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+    bindScrollTop('.footer-scroll-top');
+    bindScrollTop('.scroll-top-btn');
+  } catch (e) {
+    console.error('initFooter error', e);
+  }
+}
+
+/* ============================================================
    痛點卡片
    elId : 掛載容器的 id
    data : [{ icon?, image?, title, text }]
