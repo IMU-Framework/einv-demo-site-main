@@ -212,9 +212,14 @@
        ================================================================ */
     $(function(){
       var _loaderTimer = setTimeout(hidePageLoader, 1500);
-      var _basePath = location.pathname;
+      var _basePath = '/';
+      var _componentsScript = document.querySelector('script[src$="js/components.js"]');
+      if (_componentsScript && _componentsScript.src) {
+        var _url = new URL(_componentsScript.src, window.location.href);
+        _basePath = _url.pathname.replace(/\/js\/[^\/]+$/, '/');
+      }
       if (!_basePath.endsWith('/')) {
-        _basePath = _basePath.substring(0, _basePath.lastIndexOf('/') + 1);
+        _basePath += '/';
       }
       $('#included_navbar').load(_basePath + 'template/_navbar.html', function() {
         clearTimeout(_loaderTimer);
