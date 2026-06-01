@@ -245,7 +245,7 @@ function initNavbar() {
       solutionData.forEach(function(s) {
         if (s.active === false) return;
         var isPlaceholder = !!s.isPlaceholder;
-        var href = isPlaceholder ? '#' : ('/' + s.link);
+        var href = isPlaceholder ? '#' : s.link;
         if (isPlaceholder) {
           solHtml += '<li><span data-bs-toggle="tooltip" data-bs-placement="right" title="' + (s.tag||'') + '"><a class="dropdown-item disabled" href="' + href + '">' + s.name + '</a></span></li>';
         } else {
