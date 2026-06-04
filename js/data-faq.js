@@ -12,7 +12,7 @@
  * body.brief   (選填) 摘要；在 FAQ 總頁 Accordion 以一般段落呈現；
  *                     在獨立頁亦顯示（Callout 樣式）；空值 → 不顯示
  * body.content (選填) 詳細內容；有值 → 顯示「了解更多」按鈕；空值 → 不顯示按鈕
- * image        (選填) 圖片路徑，如 'img/xxx.jpg'；空值 → 不顯示圖片欄
+ * image        (選填) 圖片路徑，如 'img/FAQ/placeholder_accordion.svg'；空值 → 不顯示圖片欄
  * video        (選填) YouTube 完整網址，自動轉 embed；video 優先於 image；空值 → 不顯示
  * slug         (選填) 獨立頁 slug；body.content 有值時自動推導 pages/EINV_faq-{slug}.html
  * ctaModal     (選填) true = 觸發 #contactform Modal（須 body.content 有值才顯示按鈕）
@@ -41,7 +41,7 @@ var faqData = [
       brief  : '電子發票是由政府認可的數位憑證，取代傳統紙本發票，透過加值中心上傳至財政部平台，具完整法律效力，可節省紙本儲存成本並簡化對帳流程。',
       content: '<h5>電子發票的運作流程</h5><p>電子發票的開立流程分為三個主要步驟：首先，商家透過財政部認可的加值中心（如群豐）建立系統串接；其次，每筆交易完成後，系統即時產生符合規範的電子發票並上傳至財政部「電子發票整合服務平台（EINV）」；最後，平台將發票資訊回傳至買受人指定的載具（手機條碼、自然人憑證等）或紙本列印。</p><h5>電子發票 vs. 傳統紙本發票</h5><ul><li><strong>成本</strong>：省去紙張、印表機耗材及人工歸檔成本，年節省金額視交易量而定。</li><li><strong>效率</strong>：開立、作廢、折讓全程線上完成，無需補印紙本；對帳作業自動化。</li><li><strong>合規</strong>：所有發票即時上傳財政部平台，隨時可查驗，大幅降低稽查風險。</li><li><strong>環保</strong>：減少紙本耗用，符合 ESG 永續經營目標。</li></ul><p>根據財政部統計，全台電子發票開立率已逾 95%，趨勢明確，建議尚未導入的企業儘早規劃。</p>'
     },
-    image    : 'img/placeholder_accordion.svg',
+    image    : 'img/FAQ/placeholder_accordion.svg',
     video    : '',
     slug     : 'what-is-einvoice',
     ctaModal : false,
@@ -69,7 +69,7 @@ var faqData = [
       brief  : '一般而言，從申請到系統正式上線約需 5–10 個工作天，視貴公司既有系統複雜度而定。群豐提供專人輔導，協助您快速完成環境設定與測試。',
       content: ''
     },
-    image    : 'img/placeholder_accordion.svg',
+    image    : 'img/FAQ/placeholder_accordion.svg',
     video    : '',
     slug     : '',
     ctaModal : false,

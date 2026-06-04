@@ -70,26 +70,7 @@
     <section id="tech-section-docs" class="py-5">
       <div class="container">
         <h3 class="section-heading">技術文件入口</h3>
-        <ul class="doc-link-list mt-4">
-          <li>
-            <a href="">
-              <i class="bi bi-file-earmark-pdf"></i>
-              API 功能列表 (PDF)
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <i class="bi bi-file-earmark-pdf"></i>
-              串接流程 (PDF)
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <i class="bi bi-file-earmark-pdf"></i>
-              申請方式 (PDF)
-            </a>
-          </li>
-        </ul>
+        <ul id="tech-docs-list" class="doc-link-list mt-4"></ul>
         <div class="mt-5">
           <a href="#" class="btn btn-brand-navy px-5 rounded-pill"
              data-bs-toggle="modal" data-bs-target="#contactform">
@@ -103,20 +84,7 @@
     <section id="tech-section-service-center" class="py-5" style="background-color: #ffffff;">
       <div class="container">
         <h3 class="section-heading">線上服務中心</h3>
-        <div class="row g-3 mt-3" style="max-width: 520px;">
-          <div class="col-6">
-            <a href="#" class="btn btn-outline-dark w-100 py-3 fw-semibold">發票查詢</a>
-          </div>
-          <div class="col-6">
-            <a href="#" class="btn btn-outline-dark w-100 py-3 fw-semibold">載具查詢</a>
-          </div>
-          <div class="col-6">
-            <a href="#" class="btn btn-outline-dark w-100 py-3 fw-semibold">線上報修</a>
-          </div>
-          <div class="col-6">
-            <a href="#" class="btn btn-outline-dark w-100 py-3 fw-semibold">申請服務 / API</a>
-          </div>
-        </div>
+        <div id="tech-service-center-buttons" class="row g-3 mt-3" style="max-width: 520px;"></div>
       </div>
     </section>
 
@@ -129,33 +97,10 @@
     <script src="jquery/dist/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="js/data-solution.js"></script>
+    <script src="js/data-tech.js"></script>
     <script src="js/navbar.js"></script>
     <script src="js/components.js"></script>
     <script>
-      var techServicesData = [
-        {
-          title    : 'API串接',
-          body     : 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea',
-          image    : 'img/placeholder_accordion.svg',
-          ctaModal : true,
-          ctaLink  : '#'   /* 填入 API 串接說明頁網址後，將上方ctaModal改為false或註釋 */
-        },
-        {
-          title    : '發票代理程式',
-          body     : 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
-          image    : '',
-          ctaModal : true,
-          ctaLink  : '#'   /* 填入 API 串接說明頁網址後，將上方ctaModal改為false或註釋 */
-        },
-        {
-          title    : '測試環境、正式環境',
-          body     : 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
-          image    : '',
-          ctaModal : false,
-          ctaLink  : '#'   /* 填入 API 串接說明頁網址後，將上方ctaModal改為false或註釋 */
-        }
-      ];
-
       $(function(){
 var _loaderTimer = setTimeout(hidePageLoader, 1500);
         $('#included_navbar').load('template/navbar.html', function() {
@@ -173,6 +118,8 @@ var _loaderTimer = setTimeout(hidePageLoader, 1500);
         });
 
         renderPageAccordion('tech-services-accordion', techServicesData, 'techServicesAccordion');
+        renderTechDocsList('tech-docs-list', techDocsData);
+        renderServiceCenterButtons('tech-service-center-buttons', techServiceCenterData);
 
         /* ── 分段標籤平滑捲動 ──────────────────────────── */
         $(document).on('click', '.tech-tab-btn', function(e) {

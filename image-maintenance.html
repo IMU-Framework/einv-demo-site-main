@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>全站圖片維護清單 — EINV Demo Site</title>
+  <link rel="stylesheet" href="css/override_common.css">
+  <style>
+    :root {
+      --maint-navy-bg:     rgba(var(--color-brand-navy-rgb), 0.08);
+      --maint-navy-mid:    rgba(var(--color-brand-navy-rgb), 0.50);
+      --maint-navy-subtle: rgba(var(--color-brand-navy-rgb), 0.30);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', 'Microsoft JhengHei', system-ui, sans-serif;
+      font-size: 13px;
+      background: #f5f6fa;
+      color: #222;
+    }
+
+    header {
+      background: var(--color-brand-navy);
+      color: #fff;
+      padding: 20px 28px 16px;
+    }
+    header h1 { font-size: 20px; font-weight: 700; letter-spacing: .03em; }
+    header p  { margin-top: 4px; font-size: 12px; opacity: .75; }
+
+    .toolbar {
+      background: #fff;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 10px 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .toolbar label { font-size: 12px; color: #555; }
+    .toolbar select, .toolbar input {
+      font-size: 12px;
+      padding: 4px 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      outline: none;
+    }
+    #summary { margin-left: auto; font-size: 12px; color: #555; }
+    #summary span { font-weight: 600; }
+
+    .legend {
+      background: #fff;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 8px 28px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .legend-title { font-size: 11px; font-weight: 600; color: #555; }
+    .legend-item  { font-size: 11px; color: #666; }
+    .legend-item strong { color: #333; }
+
+    main { padding: 24px 28px 48px; }
+
+    .section-block { margin-bottom: 36px; }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-brand-navy);
+      background: var(--maint-navy-bg);
+      border-left: 4px solid var(--color-brand-navy);
+      padding: 6px 12px;
+      margin-bottom: 0;
+      border-radius: 2px 4px 0 0;
+    }
+    .section-count { float: right; font-weight: 400; color: var(--maint-navy-mid); font-size: 11px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 0 0 6px 6px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,.08);
+    }
+    thead th {
+      background: #eeeeee;
+      text-align: left;
+      padding: 8px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #555;
+      white-space: nowrap;
+      border-bottom: 1px solid #ddd;
+    }
+    tbody tr { border-bottom: 1px solid #f0f0f0; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: #fafafa; }
+    tbody tr.missing  { background: #fff8f8; }
+    tbody tr.missing:hover { background: #fff0f0; }
+    tbody tr.warn-row { background: #fffdf0; }
+    tbody tr.warn-row:hover { background: #fff9e0; }
+    tbody tr.unused-row { background: #f8f4ff; }
+    tbody tr.unused-row:hover { background: #f1eafe; }
+
+    td { padding: 8px 10px; vertical-align: middle; }
+
+    td.thumb { width: 96px; text-align: center; }
+    .thumb-wrap {
+      width: 80px; height: 64px; margin: 0 auto;
+      border: 1px solid #e0e0e0; border-radius: 4px; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      background: #fafafa;
+    }
+    .thumb-wrap img { max-width: 78px; max-height: 62px; object-fit: contain; display: block; }
+    .thumb-placeholder {
+      width: 80px; height: 64px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: #ffeaea; border: 1px dashed #e57373; border-radius: 4px;
+      color: #c62828; font-size: 10px; gap: 4px;
+    }
+    .thumb-placeholder svg { opacity: .5; }
+
+    td.path-cell { max-width: 260px; }
+    .path-text {
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 11px; color: #333; word-break: break-all;
+    }
+    .path-copy {
+      display: inline-block; margin-top: 3px; font-size: 10px;
+      color: #999; cursor: pointer; user-select: none;
+    }
+    .path-copy:hover { color: var(--color-brand-navy); }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 10px; font-weight: 600; padding: 2px 7px;
+      border-radius: 10px; white-space: nowrap;
+    }
+    .badge-ok      { background: #e8f5e9; color: #2e7d32; }
+    .badge-missing { background: #ffebee; color: #c62828; }
+    .badge-loading { background: #f3f3f3; color: #888; }
+    .badge-warn    { background: #fff8e1; color: #e65100; border: 1px solid #ffcc02; }
+    .badge-unused  { background: #ede7f6; color: #6a1b9a; }
+
+    td.dim, td.size-cell { white-space: nowrap; color: #444; font-size: 11px; }
+    .dim-value   { font-weight: 500; }
+    .dim-loading { color: #aaa; font-style: italic; }
+    .size-over   { color: #e65100; font-weight: 600; }
+    .size-ok     { color: #2e7d32; font-weight: 500; }
+    .size-limit  { display: block; font-size: 10px; color: #999; margin-top: 2px; }
+
+    td.usage { max-width: 320px; }
+    .usage-list { list-style: none; padding: 0; }
+    .usage-list li {
+      font-size: 11px; color: #444;
+      padding: 1px 0 1px 12px; position: relative;
+    }
+    .usage-list li::before { content: '›'; position: absolute; left: 0; color: var(--maint-navy-subtle); }
+
+    .hidden { display: none !important; }
+
+    #toast {
+      position: fixed; bottom: 24px; left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #333; color: #fff; padding: 8px 18px;
+      border-radius: 20px; font-size: 12px; opacity: 0;
+      transition: opacity .2s, transform .2s;
+      pointer-events: none; z-index: 9999;
+    }
+    #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>全站圖片維護清單</h1>
+  <p>EINV Demo Site &nbsp;·&nbsp; 圖片清單與使用位置均在瀏覽器即時偵測 &nbsp;·&nbsp; 產生時間：<span id="gen-date"></span></p>
+</header>
+
+<div class="toolbar">
+  <label>篩選分類
+    <select id="filter-cat"><option value="">全部分類</option></select>
+  </label>
+  <label>顯示狀態
+    <select id="filter-status">
+      <option value="">全部</option>
+      <option value="ok">OK</option>
+      <option value="missing">缺少 (Missing)</option>
+      <option value="warn">需優化 (!)</option>
+      <option value="unused">未引用</option>
+    </select>
+  </label>
+  <label>搜尋路徑
+    <input type="text" id="filter-search" placeholder="輸入關鍵字..." style="width:180px" />
+  </label>
+  <div id="summary">載入中…</div>
+</div>
+
+<div class="legend">
+  <span class="legend-title">建議檔案大小上限：</span>
+  <span class="legend-item"><strong>Favicon / 小圖示</strong> ≤ 5 KB</span>
+  <span class="legend-item"><strong>PWA 圖示</strong> ≤ 30 KB</span>
+  <span class="legend-item"><strong>SVG Logo / 品牌</strong> ≤ 50 KB</span>
+  <span class="legend-item"><strong>SVG 裝飾 / 功能圖示</strong> ≤ 30 KB</span>
+  <span class="legend-item"><strong>縮圖 / 客戶 Logo</strong> ≤ 100 KB</span>
+  <span class="legend-item"><strong>卡片圖片</strong> ≤ 200 KB</span>
+  <span class="legend-item"><strong>Hero / Banner 大圖</strong> ≤ 500 KB</span>
+</div>
+
+<main id="main-content"></main>
+<div id="toast"></div>
+
+<script>
+/* ── 要抓取的原始碼檔案（usages 掃描來源）─────────────────────
+   每次有新的 .js / .html / .css 加入專案，在此補上路徑。         */
+const SOURCE_FILES = [
+  'js/data-case.js',     'js/data-faq.js',   'js/data-role.js',
+  'js/data-solution.js', 'js/data-tech.js',
+  'js/components.js',    'js/navbar.js',      'js/footer.js',
+  'css/components.css',  'css/override_common.css', 'css/override_index.css',
+  'css/override_standard.css', 'css/solution-page.css',
+  'css/case-cards.css',  'css/solution-cards.css',  'css/article-page.css',
+  'template/navbar.html', 'template/footer.html',
+  'index.html', 'site.webmanifest',
+  'pages/EINV_case1.html',         'pages/EINV_case2.html',
+  'pages/EINV_case3.html',         'pages/EINV_case4.html',
+  'pages/EINV_case5.html',         'pages/EINV_case6.html',
+  'pages/EINV_case7.html',         'pages/EINV_case8.html',
+  'pages/EINV_case_overview.html',
+  'pages/EINV_faq.html',           'pages/EINV_faq-what-is-einvoice.html',
+  'pages/EINV_solution1.html',     'pages/EINV_solution2.html',
+  'pages/EINV_solution3.html',     'pages/EINV_solution_overview.html',
+  'pages/EINV_tech_support.html',
+];
+
+/* ── 分類規則（與 scan-images.js 保持同步）──────────────────── */
+function classify(p) {
+  p = p.replace(/\\/g, '/');
+  if (!p.startsWith('img/'))         return { category: 'Favicon & PWA 圖示' };
+  if (p.startsWith('img/brand/'))    return { category: '品牌標誌' };
+  if (p.startsWith('img/home/banner'))   return { category: '首頁 Banner 輪播' };
+  if (p.startsWith('img/home/solution')) return { category: '首頁方案卡片' };
+  if (p.startsWith('img/home/'))     return { category: '首頁素材' };
+  if (p.startsWith('img/solutions/'))return { category: '方案詳細頁 Hero 圖' };
+  if (p.startsWith('img/icons/'))    return { category: '功能圖示 / 裝飾' };
+  if (p.startsWith('img/cases/'))    return { category: '成功案例縮圖' };
+  if (p.startsWith('img/clients/logo/')) return { category: '客戶 Logo' };
+  if (p.startsWith('img/FAQ/'))      return { category: 'FAQ 頁圖片（img/FAQ/）' };
+  if (p.startsWith('img/tech/'))     return { category: '技術支援頁圖片（img/tech/）' };
+  return { category: '其他圖片' };
+}
+
+const CATEGORY_ORDER = [
+  'Favicon & PWA 圖示', '品牌標誌', '首頁 Banner 輪播', '首頁方案卡片',
+  '方案詳細頁 Hero 圖', '功能圖示 / 裝飾', '成功案例縮圖', '客戶 Logo',
+  '客戶業種圖片', 'FAQ 頁圖片（img/FAQ/）', '技術支援頁圖片（img/tech/）', '其他圖片',
+];
+
+/* ── 找出引用某圖片的來源檔案 ──────────────────────────────── */
+function findUsages(imgPath, srcFiles) {
+  const altPath = '../' + imgPath;
+  const refs = srcFiles
+    .filter(f => f.content.includes(imgPath) || f.content.includes(altPath))
+    .map(f => f.relPath);
+  return refs.length > 0 ? refs : ['備份用圖檔，目前無程式碼引用'];
+}
+
+/* ── 工具函式 ────────────────────────────────────────────── */
+function isSVG(p) { return p.toLowerCase().endsWith('.svg'); }
+
+function formatBytes(bytes) {
+  if (bytes == null) return null;
+  if (bytes === 0) return '0 B';
+  const k = 1024, sizes = ['B', 'KB', 'MB'];
+  const i = Math.min(Math.floor(Math.log(bytes) / Math.log(k)), sizes.length - 1);
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+}
+
+async function fetchSize(src) {
+  try {
+    const res = await fetch(src, { cache: 'no-store' });
+    if (!res.ok) return null;
+    return (await res.arrayBuffer()).byteLength;
+  } catch { return null; }
+}
+
+/* ── 狀態追蹤 ────────────────────────────────────────────── */
+let totalCount = 0, okCount = 0, missingCount = 0, warnCount = 0, unusedCount = 0;
+
+function updateSummary() {
+  document.getElementById('summary').innerHTML =
+    `共 <span>${totalCount}</span> 項 &nbsp;|&nbsp; ` +
+    `<span style="color:#2e7d32">${okCount}</span> OK &nbsp;|&nbsp; ` +
+    `<span style="color:#c62828">${missingCount}</span> 缺少 &nbsp;|&nbsp; ` +
+    `<span style="color:#6a1b9a">${unusedCount}</span> 未引用 &nbsp;|&nbsp; ` +
+    `<span style="color:#e65100">${warnCount}</span> 需優化`;
+}
+
+/* ── 建立單行 <tr> ──────────────────────────────────────── */
+function createRow(imgPath, usages, maxKB) {
+  totalCount++;
+  const isUnused = usages.length === 1 && usages[0] === '備份用圖檔，目前無程式碼引用';
+
+  const tr = document.createElement('tr');
+  tr.dataset.path   = imgPath;
+  tr.dataset.status = 'loading';
+  tr.dataset.warn   = 'false';
+
+  const tdThumb = document.createElement('td');
+  tdThumb.className = 'thumb';
+
+  const tdPath = document.createElement('td');
+  tdPath.className = 'path-cell';
+  tdPath.innerHTML = `<div class="path-text">${imgPath}</div>
+    <span class="path-copy" title="複製路徑">⎘ 複製</span>`;
+  tdPath.querySelector('.path-copy').addEventListener('click', () =>
+    navigator.clipboard.writeText(imgPath).then(() => showToast('已複製路徑'))
+  );
+
+  const tdStatus = document.createElement('td');
+  tdStatus.innerHTML = `<span class="badge badge-loading">⏳ 偵測中</span>`;
+
+  const tdDim = document.createElement('td');
+  tdDim.className = 'dim';
+  tdDim.innerHTML = `<span class="dim-loading">—</span>`;
+
+  const tdSize = document.createElement('td');
+  tdSize.className = 'size-cell';
+  tdSize.innerHTML = `<span class="dim-loading">—</span>`;
+
+  const tdUsage = document.createElement('td');
+  tdUsage.className = 'usage';
+  const ul = document.createElement('ul');
+  ul.className = 'usage-list';
+  usages.forEach(u => { const li = document.createElement('li'); li.textContent = u; ul.appendChild(li); });
+  tdUsage.appendChild(ul);
+
+  tr.append(tdThumb, tdPath, tdStatus, tdDim, tdSize, tdUsage);
+
+  const img = new Image();
+  img.onload = async () => {
+    if (isUnused) {
+      unusedCount++;
+      tr.dataset.status = 'unused';
+      tr.classList.add('unused-row');
+    } else {
+      okCount++;
+      tr.dataset.status = 'ok';
+    }
+
+    const wrap = document.createElement('div');
+    wrap.className = 'thumb-wrap';
+    const thumb = new Image();
+    thumb.src = imgPath;
+    wrap.appendChild(thumb);
+    tdThumb.appendChild(wrap);
+
+    tdStatus.innerHTML = isUnused
+      ? `<span class="badge badge-unused">◌ 未引用</span>`
+      : `<span class="badge badge-ok">✔ OK</span>`;
+
+    const w = img.naturalWidth, h = img.naturalHeight;
+    tdDim.innerHTML = (isSVG(imgPath) && w === 0 && h === 0)
+      ? `<span class="dim-value">向量圖 (SVG)</span>`
+      : `<span class="dim-value">${w} × ${h} px</span>`;
+
+    const bytes = await fetchSize(imgPath);
+    const fmt   = formatBytes(bytes);
+    if (bytes != null && maxKB != null && bytes > maxKB * 1024) {
+      warnCount++;
+      tr.dataset.warn = 'true';
+      tr.classList.add('warn-row');
+      tdSize.innerHTML = `<span class="size-over">${fmt}</span>
+        <span class="badge badge-warn" style="margin-top:4px">⚠ 需優化</span>
+        <span class="size-limit">建議 ≤ ${maxKB} KB</span>`;
+    } else {
+      tdSize.innerHTML = `<span class="${fmt ? 'size-ok' : 'dim-loading'}">${fmt || '—'}</span>
+        ${maxKB ? `<span class="size-limit">上限 ${maxKB} KB</span>` : ''}`;
+    }
+    updateSummary();
+    applyFilters();
+  };
+
+  img.onerror = () => {
+    missingCount++;
+    tr.dataset.status = 'missing';
+    tr.classList.add('missing');
+    tdThumb.innerHTML = `
+      <div class="thumb-placeholder">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 16l5-5 4 4 3-3 6 6"/>
+          <circle cx="8.5" cy="8.5" r="1.5"/>
+          <line x1="4" y1="4" x2="20" y2="20"/>
+        </svg>
+        <span>檔案不存在</span>
+      </div>`;
+    tdStatus.innerHTML = `<span class="badge badge-missing">✗ 缺少</span>`;
+    tdDim.innerHTML  = `<span style="color:#aaa">—</span>`;
+    tdSize.innerHTML = `<span style="color:#aaa">—</span>`;
+    updateSummary();
+    applyFilters();
+  };
+
+  img.src = imgPath;
+  return tr;
+}
+
+/* ── 篩選邏輯 ────────────────────────────────────────────── */
+function applyFilters() {
+  const catVal    = document.getElementById('filter-cat').value;
+  const statusVal = document.getElementById('filter-status').value;
+  const search    = document.getElementById('filter-search').value.toLowerCase();
+
+  document.querySelectorAll('.section-block').forEach(section => {
+    const catMatch = !catVal || section.dataset.category === catVal;
+    let sectionHasVisible = false;
+    section.querySelectorAll('tbody tr').forEach(tr => {
+      const pathStr = tr.dataset.path || '';
+      const status  = tr.dataset.status || '';
+      const isWarn  = tr.dataset.warn === 'true';
+      let statusMatch = true;
+      if      (statusVal === 'ok')      statusMatch = status === 'ok' && !isWarn;
+      else if (statusVal === 'missing') statusMatch = status === 'missing';
+      else if (statusVal === 'warn')    statusMatch = isWarn;
+      else if (statusVal === 'unused')  statusMatch = status === 'unused';
+      const show = catMatch && (!search || pathStr.toLowerCase().includes(search)) && statusMatch;
+      tr.classList.toggle('hidden', !show);
+      if (show) sectionHasVisible = true;
+    });
+    section.classList.toggle('hidden', !sectionHasVisible);
+  });
+}
+
+/* ── Toast ──────────────────────────────────────────────── */
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 1800);
+}
+
+/* ── 建立分類區塊與表格 ──────────────────────────────────── */
+function buildPage(groups) {
+  document.getElementById('gen-date').textContent =
+    new Date().toLocaleString('zh-TW', {
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit'
+    });
+
+  const main   = document.getElementById('main-content');
+  const catSel = document.getElementById('filter-cat');
+  const catList = [
+    ...CATEGORY_ORDER,
+    ...Object.keys(groups).filter(c => !CATEGORY_ORDER.includes(c)),
+  ];
+
+  for (const cat of catList) {
+    const items = groups[cat];
+    if (!items || items.length === 0) continue;
+
+    const opt = document.createElement('option');
+    opt.value = cat; opt.textContent = cat;
+    catSel.appendChild(opt);
+
+    const section = document.createElement('div');
+    section.className = 'section-block';
+    section.dataset.category = cat;
+
+    const titleEl = document.createElement('div');
+    titleEl.className = 'section-title';
+    titleEl.innerHTML = `${cat} <span class="section-count">${items.length} 張</span>`;
+    section.appendChild(titleEl);
+
+    const table = document.createElement('table');
+    const thead = document.createElement('thead');
+    thead.innerHTML = `<tr>
+      <th style="width:96px">縮圖</th>
+      <th>圖片路徑</th>
+      <th style="width:90px">狀態</th>
+      <th style="width:130px">尺寸 (Dimension)</th>
+      <th style="width:120px">檔案大小</th>
+      <th>使用位置</th>
+    </tr>`;
+    const tbody = document.createElement('tbody');
+    for (const item of items) tbody.appendChild(createRow(item.path, item.usages, item.maxKB));
+
+    table.appendChild(thead);
+    table.appendChild(tbody);
+    section.appendChild(table);
+    main.appendChild(section);
+  }
+
+  updateSummary();
+  catSel.addEventListener('change', applyFilters);
+  document.getElementById('filter-status').addEventListener('change', applyFilters);
+  document.getElementById('filter-search').addEventListener('input', applyFilters);
+}
+
+/* ── 主入口：fetch image-list.json + 原始碼，然後渲染 ─────── */
+async function init() {
+  try {
+    const [listResult, ...srcResults] = await Promise.allSettled([
+      fetch('scripts/image-list.json').then(r => {
+        if (!r.ok) throw new Error('找不到 scripts/image-list.json');
+        return r.json();
+      }),
+      ...SOURCE_FILES.map(f => fetch(f).then(r => r.ok ? r.text() : '')),
+    ]);
+
+    if (listResult.status === 'rejected') {
+      document.getElementById('main-content').innerHTML = `
+        <div style="padding:48px;text-align:center;color:#c62828;line-height:2.2">
+          <p style="font-size:16px">⚠ 找不到 <code>scripts/image-list.json</code></p>
+          <p style="font-size:12px;color:#888">請安裝 Node.js 後執行：<code>npm run scan-images</code></p>
+        </div>`;
+      document.getElementById('summary').textContent = '載入失敗';
+      return;
+    }
+
+    const imageList = listResult.value;
+    const srcFiles  = srcResults.map((r, i) => ({
+      relPath: SOURCE_FILES[i],
+      content: r.status === 'fulfilled' ? r.value : '',
+    }));
+
+    const groups = {};
+    for (const { path, maxKB } of imageList) {
+      const { category } = classify(path);
+      if (!groups[category]) groups[category] = [];
+      groups[category].push({ path, maxKB, usages: findUsages(path, srcFiles) });
+    }
+    for (const items of Object.values(groups)) {
+      items.sort((a, b) => a.path.localeCompare(b.path, 'zh'));
+    }
+
+    buildPage(groups);
+
+  } catch (err) {
+    document.getElementById('main-content').innerHTML = `
+      <div style="padding:48px;text-align:center;color:#c62828">
+        <p>⚠ 載入失敗：${err.message}</p>
+      </div>`;
+    document.getElementById('summary').textContent = '載入失敗';
+  }
+}
+
+init();
+</script>
+</body>
+</html>

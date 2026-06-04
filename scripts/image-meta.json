@@ -1,0 +1,128 @@
+{
+  "android-chrome-192x192.png": {
+    "maxKB": 30
+  },
+  "android-chrome-512x512.png": {
+    "maxKB": 30
+  },
+  "apple-touch-icon.png": {
+    "maxKB": 20
+  },
+  "favicon-16x16.png": {
+    "maxKB": 5
+  },
+  "favicon-32x32.png": {
+    "maxKB": 5
+  },
+  "favicon.ico": {
+    "maxKB": 20
+  },
+  "img/FAQ/placeholder_accordion.svg": {
+    "maxKB": 30
+  },
+  "img/brand/logo-circle-1.svg": {
+    "maxKB": 50
+  },
+  "img/brand/logo-circle.svg": {
+    "maxKB": 50
+  },
+  "img/brand/logo-horizontal.svg": {
+    "maxKB": 50
+  },
+  "img/cases/case1.jpg": {
+    "maxKB": 100
+  },
+  "img/cases/case2.jpg": {
+    "maxKB": 100
+  },
+  "img/cases/case3.jpg": {
+    "maxKB": 100
+  },
+  "img/cases/case4.jpg": {
+    "maxKB": 100
+  },
+  "img/cases/case5.jpg": {
+    "maxKB": 100
+  },
+  "img/cases/case6.jpg": {
+    "maxKB": 100
+  },
+  "img/cases/case7.jpg": {
+    "maxKB": 100
+  },
+  "img/cases/case8.jpg": {
+    "maxKB": 100
+  },
+  "img/clients/logo/0405.png": {
+    "maxKB": 100
+  },
+  "img/clients/logo/1002.png": {
+    "maxKB": 100
+  },
+  "img/clients/logo/HWC.png": {
+    "maxKB": 100
+  },
+  "img/clients/logo/case5-logo.jpg": {
+    "maxKB": 100
+  },
+  "img/clients/logo/matsumoto.png": {
+    "maxKB": 100
+  },
+  "img/clients/logo/nagata.png": {
+    "maxKB": 100
+  },
+  "img/clients/logo/new9ta.png": {
+    "maxKB": 100
+  },
+  "img/home/banner-01.png": {
+    "maxKB": 500
+  },
+  "img/home/banner-02.jpg": {
+    "maxKB": 500
+  },
+  "img/home/banner-03.png": {
+    "maxKB": 500
+  },
+  "img/home/solution-01.png": {
+    "maxKB": 200
+  },
+  "img/home/solution-02.png": {
+    "maxKB": 200
+  },
+  "img/home/solution-03.png": {
+    "maxKB": 200
+  },
+  "img/icons/Icon fa-solid-puzzle-piece.svg": {
+    "maxKB": 30
+  },
+  "img/icons/Icon material-person-pin.svg": {
+    "maxKB": 30
+  },
+  "img/icons/halfcloud-left.svg": {
+    "maxKB": 30
+  },
+  "img/icons/halfcloud-right.svg": {
+    "maxKB": 30
+  },
+  "img/icons/mof-logo.svg": {
+    "maxKB": 30
+  },
+  "img/icons/role-store.svg": {
+    "maxKB": 30
+  },
+  "img/icons/role-system.svg": {
+    "maxKB": 30
+  },
+  "img/solutions/solution-01-hero.png": {
+    "maxKB": 500
+  },
+  "img/solutions/solution-02-hero.png": {
+    "maxKB": 500
+  },
+  "img/solutions/solution-03-hero.png": {
+    "maxKB": 500
+  },
+  "img/tech/placeholder_accordion.svg": {
+    "maxKB": 30
+  }
+}

@@ -1,0 +1,170 @@
+[
+  {
+    "path": "android-chrome-192x192.png",
+    "maxKB": 30
+  },
+  {
+    "path": "android-chrome-512x512.png",
+    "maxKB": 30
+  },
+  {
+    "path": "apple-touch-icon.png",
+    "maxKB": 20
+  },
+  {
+    "path": "favicon-16x16.png",
+    "maxKB": 5
+  },
+  {
+    "path": "favicon-32x32.png",
+    "maxKB": 5
+  },
+  {
+    "path": "favicon.ico",
+    "maxKB": 20
+  },
+  {
+    "path": "img/FAQ/placeholder_accordion.svg",
+    "maxKB": 30
+  },
+  {
+    "path": "img/brand/logo-circle-1.svg",
+    "maxKB": 50
+  },
+  {
+    "path": "img/brand/logo-circle.svg",
+    "maxKB": 50
+  },
+  {
+    "path": "img/brand/logo-horizontal.svg",
+    "maxKB": 50
+  },
+  {
+    "path": "img/cases/case1.jpg",
+    "maxKB": 100
+  },
+  {
+    "path": "img/cases/case2.jpg",
+    "maxKB": 100
+  },
+  {
+    "path": "img/cases/case3.jpg",
+    "maxKB": 100
+  },
+  {
+    "path": "img/cases/case4.jpg",
+    "maxKB": 100
+  },
+  {
+    "path": "img/cases/case5.jpg",
+    "maxKB": 100
+  },
+  {
+    "path": "img/cases/case6.jpg",
+    "maxKB": 100
+  },
+  {
+    "path": "img/cases/case7.jpg",
+    "maxKB": 100
+  },
+  {
+    "path": "img/cases/case8.jpg",
+    "maxKB": 100
+  },
+  {
+    "path": "img/clients/logo/0405.png",
+    "maxKB": 100
+  },
+  {
+    "path": "img/clients/logo/1002.png",
+    "maxKB": 100
+  },
+  {
+    "path": "img/clients/logo/HWC.png",
+    "maxKB": 100
+  },
+  {
+    "path": "img/clients/logo/case5-logo.jpg",
+    "maxKB": 100
+  },
+  {
+    "path": "img/clients/logo/matsumoto.png",
+    "maxKB": 100
+  },
+  {
+    "path": "img/clients/logo/nagata.png",
+    "maxKB": 100
+  },
+  {
+    "path": "img/clients/logo/new9ta.png",
+    "maxKB": 100
+  },
+  {
+    "path": "img/home/banner-01.png",
+    "maxKB": 500
+  },
+  {
+    "path": "img/home/banner-02.jpg",
+    "maxKB": 500
+  },
+  {
+    "path": "img/home/banner-03.png",
+    "maxKB": 500
+  },
+  {
+    "path": "img/home/solution-01.png",
+    "maxKB": 200
+  },
+  {
+    "path": "img/home/solution-02.png",
+    "maxKB": 200
+  },
+  {
+    "path": "img/home/solution-03.png",
+    "maxKB": 200
+  },
+  {
+    "path": "img/icons/Icon fa-solid-puzzle-piece.svg",
+    "maxKB": 30
+  },
+  {
+    "path": "img/icons/Icon material-person-pin.svg",
+    "maxKB": 30
+  },
+  {
+    "path": "img/icons/halfcloud-left.svg",
+    "maxKB": 30
+  },
+  {
+    "path": "img/icons/halfcloud-right.svg",
+    "maxKB": 30
+  },
+  {
+    "path": "img/icons/mof-logo.svg",
+    "maxKB": 30
+  },
+  {
+    "path": "img/icons/role-store.svg",
+    "maxKB": 30
+  },
+  {
+    "path": "img/icons/role-system.svg",
+    "maxKB": 30
+  },
+  {
+    "path": "img/solutions/solution-01-hero.png",
+    "maxKB": 500
+  },
+  {
+    "path": "img/solutions/solution-02-hero.png",
+    "maxKB": 500
+  },
+  {
+    "path": "img/solutions/solution-03-hero.png",
+    "maxKB": 500
+  },
+  {
+    "path": "img/tech/placeholder_accordion.svg",
+    "maxKB": 30
+  }
+]

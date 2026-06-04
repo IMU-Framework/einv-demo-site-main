@@ -781,6 +781,36 @@ function renderFaqSections(elId, categories, faqData) {
 }
 
 /* ============================================================
+   方案頁技術服務 accordion（無分類、無搜尋）
+   elId       : 掛載容器的 id
+   data       : techServicesData 陣列
+   solutionIdx: 1-based (1=POS直達車, 2=共享小平台, 3=豪華包車)
+   ============================================================ */
+function renderSolutionTechServices(elId, data, solutionIdx) {
+  var el = document.getElementById(elId);
+  if (!el) return;
+  var section = el.closest('section');
+
+  var filtered = (data || []).filter(function(item) {
+    return item.title &&
+           Array.isArray(item.techRelated) &&
+           item.techRelated[solutionIdx - 1] === 1;
+  });
+
+  if (!filtered.length) {
+    el.innerHTML = '';
+    if (section) section.style.display = 'none';
+    return;
+  }
+
+  if (section) section.style.display = '';
+  renderPageAccordion(elId, filtered, 'solutionTechAccordion-' + elId);
+  /* match renderSolutionFaq which wraps accordion in mt-4 */
+  var accordion = el.querySelector('.accordion');
+  if (accordion) accordion.classList.add('mt-4');
+}
+
+/* ============================================================
    方案頁 FAQ accordion（無分類、無搜尋）
    elId       : 掛載容器的 id
    data       : faqData 陣列
@@ -789,6 +819,7 @@ function renderFaqSections(elId, categories, faqData) {
 function renderSolutionFaq(elId, data, solutionIdx) {
   var el = document.getElementById(elId);
   if (!el) return;
+  var section = el.closest('section');
 
   var accordionId = 'solutionFaqAccordion-' + elId;
   var filtered = (data || []).filter(function(item) {
@@ -797,7 +828,13 @@ function renderSolutionFaq(elId, data, solutionIdx) {
            item.solutionRelated[solutionIdx - 1] === 1;
   });
 
-  if (!filtered.length) { el.innerHTML = ''; return; }
+  if (!filtered.length) {
+    el.innerHTML = '';
+    if (section) section.style.display = 'none';
+    return;
+  }
+
+  if (section) section.style.display = '';
 
   var itemsHTML = filtered.map(function(item, i) {
     var collapseId = accordionId + '-item-' + i;
@@ -1201,7 +1238,10 @@ function renderSolutionPage(item) {
       '</div>' +
     '</div>';
 
-  /* Section 5: FAQ */
+  /* Section 5: Tech Services + FAQ */
+  if (typeof techServicesData !== 'undefined') {
+    renderSolutionTechServices('solution-tech-services-container', techServicesData, item.faqIndex);
+  }
   renderSolutionFaq('solution-faq-container', faqData, item.faqIndex);
 }
 
@@ -1442,6 +1482,46 @@ function hidePageLoader() {
   setTimeout(function() {
     if (el.parentNode) el.parentNode.removeChild(el);
   }, 380);
+}
+
+/* ============================================================
+   技術文件入口連結清單
+   elId : 掛載容器的 id（應為 <ul>）
+   data : [{ icon, label, href }]
+   ============================================================ */
+function renderTechDocsList(elId, data) {
+  var el = document.getElementById(elId);
+  if (!el) return;
+  el.innerHTML = data.map(function(item) {
+    return (
+      '<li>' +
+        '<a href="' + (item.href || '') + '">' +
+          '<i class="bi ' + item.icon + '"></i>' +
+          ' ' + item.label +
+        '</a>' +
+      '</li>'
+    );
+  }).join('');
+}
+
+/* ============================================================
+   線上服務中心快捷按鈕
+   elId : 掛載容器的 id（應為 <div class="row">）
+   data : [{ label, href }]
+   ============================================================ */
+function renderServiceCenterButtons(elId, data) {
+  var el = document.getElementById(elId);
+  if (!el) return;
+  el.innerHTML = data.map(function(item) {
+    return (
+      '<div class="col-6">' +
+        '<a href="' + (item.href || '#') + '"' +
+          ' class="btn btn-outline-dark w-100 py-3 fw-semibold">' +
+          item.label +
+        '</a>' +
+      '</div>'
+    );
+  }).join('');
 }
 
 /* ============================================================
