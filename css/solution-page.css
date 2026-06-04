@@ -59,20 +59,26 @@
   background-color: var(--color-bg-page);
 }
 
+.solution-breadcrumb .breadcrumb {
+  align-items: center;
+}
+
+.solution-breadcrumb .breadcrumb-item {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
 .solution-breadcrumb .breadcrumb-item a {
   color: var(--bs-secondary);
   text-decoration: none;
-  font-size: 0.85rem;
 }
 
 .solution-breadcrumb .breadcrumb-item.active {
   color: var(--bs-gray-700);
-  font-size: 0.85rem;
 }
 
 .solution-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
   color: var(--bs-gray-500);
-  font-size: 0.85rem;
 }
 
 .solution-hero-badge {
@@ -103,9 +109,12 @@
 }
 
 .solution-hero-img-wrap {
-  width: 540px;
-  height: 360px;
+  width: 100%;
+  max-width: 540px;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .solution-hero-img {

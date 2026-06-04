@@ -11,20 +11,26 @@
 }
 
 /* ---- Breadcrumb (standalone page only) ---- */
+.article-breadcrumb .breadcrumb {
+  align-items: center;
+}
+
+.article-breadcrumb .breadcrumb-item {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
 .article-breadcrumb .breadcrumb-item a {
   color: var(--bs-secondary);
   text-decoration: none;
-  font-size: 0.85rem;
 }
 
 .article-breadcrumb .breadcrumb-item.active {
   color: var(--bs-gray-700);
-  font-size: 0.85rem;
 }
 
 .article-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
   color: var(--bs-gray-500);
-  font-size: 0.85rem;
 }
 
 /* ---- Article Detail Content ---- */

@@ -713,9 +713,9 @@
    ============================================ */
 @media (max-width: 767.98px) {
 
-  Section 標題
-  .section-title__main { font-size: 1.5rem; }
-  .section-title__sub  { font-size: 1.2rem; }
+  /* Section 標題 */
+  .section-title__main { font-size: 1.4rem; }
+  .section-title__sub  { font-size: 1.1rem; }
 
   /* Section 分隔線 */
   .pos-divider { margin: 1.5rem auto; }
