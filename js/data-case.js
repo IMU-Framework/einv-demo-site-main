@@ -1,5 +1,5 @@
 /**
- * case-data.js — 成功案例資料庫
+ * data-case.js — 成功案例資料庫
  *
  * caseData : 案例項目
  *
@@ -27,7 +27,7 @@ var caseData = [
     logo         : 'img/clients/logo/HWC.png',
     title        : '黑沃咖啡',
     desc         : '連鎖咖啡品牌導入 VENUS 餐飲 POS，實現跨門市一致化管理，大幅降低新進人員教育訓練時間。',
-    link         : 'pages/EINV_case1.html',
+    link         : 'pages/EINV_case_detail.html?id=case1',
     img          : 'img/cases/case1.jpg',
     featured     : true,
     quote        : '連鎖咖啡品牌，打造穩定又有彈性的門市營運流程',
@@ -41,7 +41,7 @@ var caseData = [
     logo         : 'img/clients/logo/nagata.png',
     title        : '長田本庄軒',
     desc         : '日式餐飲品牌透過 VENUS POS 讓點餐與收銀流程更順暢，即使尖峰時段也能維持穩定出餐節奏。',
-    link         : 'pages/EINV_case2.html',
+    link         : 'pages/EINV_case_detail.html?id=case2',
     img          : 'img/cases/case2.jpg',
     featured     : true,
     quote        : '日式餐飲品牌，用系統撐起尖峰時段的出餐效率',
@@ -55,7 +55,7 @@ var caseData = [
     logo         : 'img/clients/logo/matsumoto.png',
     title        : '松本清',
     desc         : '大型連鎖藥妝通路導入 SMEPOS，在高來客量環境下穩定維持收銀品質與跨門市作業一致性。',
-    link         : 'pages/EINV_case3.html',
+    link         : 'pages/EINV_case_detail.html?id=case3',
     img          : 'img/cases/case3.jpg',
     featured     : true,
     quote        : '連鎖藥妝零售，穩定支撐高頻交易與門市一致性',
@@ -69,7 +69,7 @@ var caseData = [
     logo         : 'img/clients/logo/new9ta.png',
     title        : '久大文具',
     desc         : '文具零售門市透過 SMEPOS 輕鬆管理多元商品品項，收銀直覺快速，讓日常營運管理回歸簡單。',
-    link         : 'pages/EINV_case4.html',
+    link         : 'pages/EINV_case_detail.html?id=case4',
     img          : 'img/cases/case4.jpg',
     featured     : true,
     quote        : '商品種類多樣，讓收銀與管理回歸簡單',
@@ -83,7 +83,7 @@ var caseData = [
     logo         : 'img/clients/logo/case5-logo.jpg',
     title        : '中型餐飲門市',
     desc         : '餐飲門市無需建置 POS 系統，透過共享小平台以最低門檻快速完成電子發票合規，順利上線。',
-    link         : 'pages/EINV_case5.html',
+    link         : 'pages/EINV_case_detail.html?id=case5',
     img          : 'img/cases/case5.jpg',
     featured     : true,
     quote        : '免 POS 輕鬆合規，餐飲門市順利完成電子發票上線',
@@ -96,7 +96,7 @@ var caseData = [
     solutionLink : 'pages/EINV_solution3.html',
     title        : '客製案例一',
     desc         : '既有 POS 系統免更換，透過批次取號彈性整合，快速完成電子發票導入，不影響現場收銀流程。',
-    link         : 'pages/EINV_case6.html',
+    link         : 'pages/EINV_case_detail.html?id=case6',
     img          : 'img/cases/case6.jpg',
     featured     : true,
     quote        : '他牌 POS 系統，快速導入電子發票不中斷營運',
@@ -109,7 +109,7 @@ var caseData = [
     solutionLink : 'pages/EINV_solution3.html',
     title        : '客製案例二',
     desc         : '多業態門市採分段配號解決方案，有效區分各業務發票來源，提升內部控管與對帳效率。',
-    link         : 'pages/EINV_case7.html',
+    link         : 'pages/EINV_case_detail.html?id=case7',
     img          : 'img/cases/case7.jpg',
     featured     : true,
     quote        : '多業務型態門市，發票配號清楚又好管理',
@@ -122,7 +122,7 @@ var caseData = [
     solutionLink : 'pages/EINV_solution3.html',
     title        : '客製案例三',
     desc         : '高即時性交易場景採即時單張取號模式，POS 每完成一筆交易即開立發票，無需重新開發系統。',
-    link         : 'pages/EINV_case8.html',
+    link         : 'pages/EINV_case_detail.html?id=case8',
     img          : 'img/cases/case8.jpg',
     featured     : true,
     quote        : '即時取號開立，滿足高即時性交易需求',

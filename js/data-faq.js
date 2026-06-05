@@ -1,5 +1,5 @@
 /**
- * faq-data.js — FAQ 知識庫資料
+ * data-faq.js — FAQ 知識庫資料
  *
  * faqCategories : 類別清單（決定 tile 順序與 section 標題）
  * faqData       : FAQ 項目（每筆含 category 對應 faqCategories[n].id）

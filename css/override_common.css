@@ -1,3 +1,9 @@
+/*
+ * override_common.css — 全站共用覆寫樣式
+ * 含：CSS 色彩變數、Body / Navbar / Banner 基礎排版、按鈕、Footer 文字色
+ * 引用頁面：所有頁面
+ */
+
 :root {
   --color-bg-page:           #F3F4F9;
   --color-text-muted:        #7A7E83;

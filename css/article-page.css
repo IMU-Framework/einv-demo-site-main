@@ -1,7 +1,8 @@
-/* ===========================================
-   Article / Detail Page Styles
-   Used by: EINV_case*.html, EINV_faq-*.html
-   =========================================== */
+/*
+ * article-page.css — 文章 / 詳情頁共用樣式
+ * 含：Hero Section、麵包屑、內文排版、引言區塊、案例概覽 Modal
+ * 引用頁面：EINV_case1~8.html、EINV_case_overview.html、EINV_faq-what-is-einvoice.html
+ */
 
 /* ---- Hero Section (standalone page) ---- */
 .article-hero {

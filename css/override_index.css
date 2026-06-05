@@ -1,8 +1,7 @@
-/**
- * override_index.css - index.html 頁面佈局微調
- *
- * 組件樣式（卡片、標題、圖示等）已移至 css/components.css
- * 此檔案只存放首頁專屬的版面配置調整
+/*
+ * override_index.css — index.html 首頁專屬版面配置
+ * 含：Hero 背景、Banner 輪播容器；組件樣式已移至 components.css
+ * 引用頁面：index.html
  */
 
 /* ============================================

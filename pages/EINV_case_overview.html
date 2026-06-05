@@ -141,8 +141,9 @@ var _loaderTimer = setTimeout(hidePageLoader, 1500);
           $overlay.addClass('is-open');
           $('body').addClass('overflow-hidden');
           $overlay.scrollTop(0);
+          var qs = url.indexOf('?') >= 0 ? url.split('?')[1] : '';
+          var caseId = new URLSearchParams(qs).get('id');
           $content.load(url + ' #case-detail-content', function() {
-            var caseId = $content.find('[data-case-id]').data('case-id');
             var item = (caseData || []).filter(function(c){ return c.id === caseId; })[0];
             if (item) renderCaseDetail(item);
           });
@@ -172,3 +173,4 @@ var _loaderTimer = setTimeout(hidePageLoader, 1500);
 </body>
 </html>
 <!-- IMU089_群豐資訊科技_新版EINV網頁 version1.0 created by IMU Framework. 2026/04/29 -->
+<!-- IMU089_群豐資訊科技_新版EINV網頁 version1.1 updated by IMU Framework. 2026/06/05 -->

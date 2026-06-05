@@ -1,7 +1,8 @@
-/* ===========================================
-   Solution Page Shared Styles
-   Used by: EINV_solution1.html, EINV_solution2.html, EINV_solution3.html
-   =========================================== */
+/*
+ * solution-page.css — 方案詳情頁共用樣式
+ * 含：Hero、Features、Process、Tech、Tech Services、FAQ、CTA 各 Section 排版
+ * 引用頁面：EINV_solution1~3.html、EINV_solution_overview.html
+ */
 
 /* ---- Section Common ---- */
 .section-heading {

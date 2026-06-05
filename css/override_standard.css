@@ -1,4 +1,10 @@
-/* override_standard.css — 標準頁面覆寫樣式 */
+/*
+ * override_standard.css — 標準子頁面覆寫樣式
+ * 含：手機版 navbar 佔位縮小、頁面首個 section 緊貼 navbar
+ * 引用頁面：EINV_solution1~3.html、EINV_solution_overview.html、
+ *          EINV_case1~8.html、EINV_case_overview.html、
+ *          EINV_faq.html、EINV_faq-what-is-einvoice.html、EINV_tech_support.html
+ */
 
 /* 手機版：navbar 佔位縮小、頁面第一個 section 緊貼 navbar */
 @media (max-width: 767.98px) {

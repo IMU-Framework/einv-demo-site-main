@@ -1,12 +1,10 @@
-/* ===========================================
-   Solution Cards — Cross-page Solution UI Components
-   Used by: index.html, EINV_solution_overview.html,
-            EINV_case_overview.html, EINV_case1~5.html
-
-   色彩機制：各方案色由 data-solution.js 定義，JS 渲染時以
-   inline style 設定 --_solution-color 與 --_solution-color-rgb
-   於最外層容器，子元素 CSS 繼承並推導陰影、透明度等變化。
-   =========================================== */
+/*
+ * solution-cards.css — 跨頁共用方案卡片組件
+ * 含：方案卡片、方案 Hero 卡片、方案選單圖示、比較 Carousel
+ * 注意：色彩由 data-solution.js 注入 --_solution-color 至最外層容器，子元素繼承推導
+ * 引用頁面：index.html、EINV_solution_overview.html、
+ *          EINV_case_overview.html、EINV_case1~8.html
+ */
 
 /* ============================================
    方案卡片 - Solution Card

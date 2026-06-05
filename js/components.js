@@ -725,7 +725,7 @@ function renderFaqSections(elId, categories, faqData) {
                ' data-bs-toggle="modal" data-bs-target="#contactform">了解更多</a>';
         } else if (item.slug) {
           ctaHTML =
-            '<a href="pages/EINV_faq-' + item.slug + '.html"' +
+            '<a href="pages/EINV_faq_detail.html?slug=' + item.slug + '"' +
                ' class="btn btn-outline-dark rounded-pill px-4 mt-2">了解更多</a>';
         }
       }
@@ -868,7 +868,7 @@ function renderSolutionFaq(elId, data, solutionIdx) {
              ' data-bs-toggle="modal" data-bs-target="#contactform">了解更多</a>';
       } else if (item.slug) {
         ctaHTML =
-          '<a href="pages/EINV_faq-' + item.slug + '.html"' +
+          '<a href="pages/EINV_faq_detail.html?slug=' + item.slug + '"' +
              ' class="btn btn-outline-dark rounded-pill px-4 mt-2">了解更多</a>';
       }
     }

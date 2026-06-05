@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
@@ -17,7 +17,6 @@
     }
     h1, h2, h3 { font-weight: 700; }
 
-    /* Cover */
     .cover-box {
       background: #0E4E96;
       color: #fff;
@@ -33,7 +32,6 @@
     }
     .cover-meta th { opacity: 0.65; font-weight: 400; padding-right: 0.5rem; white-space: nowrap; }
 
-    /* Section heading */
     .section-heading {
       border-left: 4px solid #0E4E96;
       padding-left: 0.9rem;
@@ -49,7 +47,6 @@
       color: #0E4E96;
     }
 
-    /* Site map */
     .sitemap-tree {
       background: #f8f9fa;
       border: 1px solid #dee2e6;
@@ -69,7 +66,6 @@
     .stag-modal { background: #EF7518; color: #fff; }
     .spath { color: #6c757d; font-size: 0.8rem; }
 
-    /* Tables */
     .table { font-size: 0.85rem; }
     .table thead th {
       background: #0E4E96;
@@ -87,17 +83,6 @@
     }
     .table thead th code { background: rgba(255,255,255,0.15); color: #fff; }
 
-    /* Color swatch */
-    .swatch {
-      display: inline-block;
-      width: 16px; height: 16px;
-      border-radius: 3px;
-      border: 1px solid rgba(0,0,0,0.15);
-      vertical-align: middle;
-      margin-right: 5px;
-    }
-
-    /* TOC */
     .toc-box {
       background: #f8f9fa;
       border: 1px solid #dee2e6;
@@ -109,11 +94,6 @@
     .toc-box a { color: #0E4E96; text-decoration: none; }
     .toc-box a:hover { text-decoration: underline; }
 
-    /* Warning row */
-    .tr-warn td { background: #fff3cd !important; }
-    .tr-warn td:first-child::before { content: "⚠️ "; }
-
-    /* Footer */
     .doc-footer {
       border-top: 1px solid #dee2e6;
       margin-top: 3.5rem;
@@ -122,7 +102,6 @@
       font-size: 0.8rem;
     }
 
-    /* Toggle groups */
     .toggle-group {
       border: 1px solid #c5d4e8;
       border-radius: 6px;
@@ -169,10 +148,23 @@
     }
     .toggle-body .table { margin-bottom: 0; }
 
-    /* Quick-ref table header darker to distinguish */
     .qref-table thead th { background: #1a3d6e; }
 
-    /* Print */
+    .img-link-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #f0f3f8;
+      border: 1px solid #c5d4e8;
+      border-radius: 5px;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.85rem;
+      color: #0E4E96;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .img-link-box:hover { background: #d4e4f7; color: #0a3d78; }
+
     @media print {
       .no-print { display: none !important; }
       .container { max-width: 100% !important; padding: 0 !important; }
@@ -200,7 +192,7 @@
         <tr><th>製作單位</th><td>IMU Framework Design</td></tr>
         <tr><th>測試版本</th><td>v1.0</td></tr>
         <tr><th>建置日期</th><td>2026. 04. 20</td></tr>
-        <tr><th>文件日期</th><td>2026. 05. 12</td></tr>
+        <tr><th>文件日期</th><td>2026. 06. 04</td></tr>
       </tbody>
     </table>
   </div>
@@ -212,7 +204,6 @@
       <li><a href="#sec-sitemap">網站地圖（Site Map）</a></li>
       <li><a href="#sec-pages">頁面目錄（Page Inventory）</a></li>
       <li><a href="#sec-content">內容資料維護索引（Content Data Maintenance Index）</a></li>
-      <li><a href="#sec-assets">圖片素材維護索引（Image Asset Inventory）</a></li>
     </ol>
   </div>
 
@@ -232,20 +223,20 @@
 │
 ├── <span class="stag stag-drop">Dropdown</span> <strong>成功案例</strong>
 │   ├─ 案例總覽       <span class="spath">pages/EINV_case_overview.html</span>
-│   ├─ 案例 1         <span class="spath">pages/EINV_case1.html</span>
-│   ├─ 案例 2         <span class="spath">pages/EINV_case2.html</span>
-│   ├─ 案例 3         <span class="spath">pages/EINV_case3.html</span>
-│   ├─ 案例 4         <span class="spath">pages/EINV_case4.html</span>
-│   ├─ 案例 5         <span class="spath">pages/EINV_case5.html</span>
-│   ├─ 案例 6         <span class="spath">pages/EINV_case6.html</span>
-│   ├─ 案例 7         <span class="spath">pages/EINV_case7.html</span>
-│   └─ 案例 8         <span class="spath">pages/EINV_case8.html</span>
+│   ├─ 案例 1         <span class="spath">pages/EINV_case_detail.html?id=case1</span>
+│   ├─ 案例 2         <span class="spath">pages/EINV_case_detail.html?id=case2</span>
+│   ├─ 案例 3         <span class="spath">pages/EINV_case_detail.html?id=case3</span>
+│   ├─ 案例 4         <span class="spath">pages/EINV_case_detail.html?id=case4</span>
+│   ├─ 案例 5         <span class="spath">pages/EINV_case_detail.html?id=case5</span>
+│   ├─ 案例 6         <span class="spath">pages/EINV_case_detail.html?id=case6</span>
+│   ├─ 案例 7         <span class="spath">pages/EINV_case_detail.html?id=case7</span>
+│   └─ 案例 8         <span class="spath">pages/EINV_case_detail.html?id=case8</span>
 │
 ├── <span class="stag stag-nav">連結</span> <strong>技術支援</strong>     <span class="spath">pages/EINV_tech_support.html</span>
 │
 ├── <span class="stag stag-nav">連結</span> <strong>常見問題</strong>
 │   ├─ FAQ 總頁        <span class="spath">pages/EINV_faq.html</span>
-│   └─ FAQ 詳細頁      <span class="spath">pages/EINV_faq-what-is-einvoice.html</span>
+│   └─ FAQ 詳細頁      <span class="spath">pages/EINV_faq_detail.html?slug=what-is-einvoice</span>
 │
 └── <span class="stag stag-modal">Modal</span> <strong>立即諮詢</strong>   （各頁共用彈窗，無獨立 URL）</pre>
     </div>
@@ -254,7 +245,7 @@
   <!-- ░░ 2. PAGE INVENTORY ░░ -->
   <section id="sec-pages">
     <h2 class="section-heading">2. 頁面目錄（Page Inventory）</h2>
-    <p class="text-muted">網站所有 HTML 頁面一覽，含用途與內容資料來源。</p>
+    <p class="text-muted">網站所有 HTML 頁面一覽。</p>
     <div class="table-responsive">
       <table class="table table-bordered table-striped table-hover align-middle">
         <thead>
@@ -263,7 +254,6 @@
             <th>頁面名稱</th>
             <th>檔案路徑</th>
             <th>頁面用途</th>
-            <th>內容來源</th>
           </tr>
         </thead>
         <tbody>
@@ -272,107 +262,90 @@
             <td>首頁</td>
             <td><code>index.html</code></td>
             <td>網站入口、品牌形象、方案導覽</td>
-            <td>各 JS data 檔 + inline 資料</td>
           </tr>
           <tr>
             <td rowspan="4">解決方案</td>
             <td>方案總覽</td>
             <td><code>pages/EINV_solution_overview.html</code></td>
             <td>角色分流 Wizard + 服務方案比較一覽</td>
-            <td><code>js/data-role.js</code>（roleWizardData）、<code>js/data-solution.js</code>（compareRows）</td>
           </tr>
           <tr>
             <td>POS 直達車</td>
             <td><code>pages/EINV_solution1.html</code></td>
             <td>方案 1 詳細介紹</td>
-            <td><code>js/data-solution.js</code></td>
           </tr>
           <tr>
             <td>共享小平台</td>
             <td><code>pages/EINV_solution2.html</code></td>
             <td>方案 2 詳細介紹</td>
-            <td><code>js/data-solution.js</code></td>
           </tr>
           <tr>
             <td>豪華包車</td>
             <td><code>pages/EINV_solution3.html</code></td>
             <td>方案 3 詳細介紹</td>
-            <td><code>js/data-solution.js</code></td>
           </tr>
           <tr>
             <td rowspan="9">成功案例</td>
             <td>案例總覽</td>
             <td><code>pages/EINV_case_overview.html</code></td>
             <td>所有案例輪播展示</td>
-            <td><code>js/data-case.js</code></td>
           </tr>
           <tr>
             <td>案例 1（黑沃咖啡 × 餐飲 × POS 直達車）</td>
-            <td><code>pages/EINV_case1.html</code></td>
+            <td><code>pages/EINV_case_detail.html?id=case1</code></td>
             <td>案例詳細內容</td>
-            <td><code>js/data-case.js</code></td>
           </tr>
           <tr>
             <td>案例 2（長田本庄軒 × 餐飲 × POS 直達車）</td>
-            <td><code>pages/EINV_case2.html</code></td>
+            <td><code>pages/EINV_case_detail.html?id=case2</code></td>
             <td>案例詳細內容</td>
-            <td><code>js/data-case.js</code></td>
           </tr>
           <tr>
             <td>案例 3（松本清 × 零售 × POS 直達車）</td>
-            <td><code>pages/EINV_case3.html</code></td>
+            <td><code>pages/EINV_case_detail.html?id=case3</code></td>
             <td>案例詳細內容</td>
-            <td><code>js/data-case.js</code></td>
           </tr>
           <tr>
             <td>案例 4（久大文具 × 零售 × POS 直達車）</td>
-            <td><code>pages/EINV_case4.html</code></td>
+            <td><code>pages/EINV_case_detail.html?id=case4</code></td>
             <td>案例詳細內容</td>
-            <td><code>js/data-case.js</code></td>
           </tr>
           <tr>
             <td>案例 5（餐飲 × 共享小平台）</td>
-            <td><code>pages/EINV_case5.html</code></td>
+            <td><code>pages/EINV_case_detail.html?id=case5</code></td>
             <td>案例詳細內容</td>
-            <td><code>js/data-case.js</code></td>
           </tr>
           <tr>
             <td>案例 6（零售 × 豪華包車）</td>
-            <td><code>pages/EINV_case6.html</code></td>
+            <td><code>pages/EINV_case_detail.html?id=case6</code></td>
             <td>案例詳細內容</td>
-            <td><code>js/data-case.js</code></td>
           </tr>
           <tr>
             <td>案例 7（零售 × 豪華包車）</td>
-            <td><code>pages/EINV_case7.html</code></td>
+            <td><code>pages/EINV_case_detail.html?id=case7</code></td>
             <td>案例詳細內容</td>
-            <td><code>js/data-case.js</code></td>
           </tr>
           <tr>
             <td>案例 8（零售 × 豪華包車）</td>
-            <td><code>pages/EINV_case8.html</code></td>
+            <td><code>pages/EINV_case_detail.html?id=case8</code></td>
             <td>案例詳細內容</td>
-            <td><code>js/data-case.js</code></td>
           </tr>
           <tr>
             <td>技術支援</td>
             <td>技術支援</td>
             <td><code>pages/EINV_tech_support.html</code></td>
             <td>技術服務項目、文件下載、服務中心</td>
-            <td>直接寫於 HTML 內</td>
           </tr>
           <tr>
             <td rowspan="2">常見問題</td>
             <td>FAQ 總頁</td>
             <td><code>pages/EINV_faq.html</code></td>
             <td>FAQ 分類瀏覽與搜尋</td>
-            <td><code>js/data-faq.js</code></td>
           </tr>
           <tr>
             <td>FAQ 詳細頁</td>
-            <td><code>pages/EINV_faq-what-is-einvoice.html</code></td>
+            <td><code>pages/EINV_faq_detail.html?slug=what-is-einvoice</code></td>
             <td>單篇 FAQ 詳細說明</td>
-            <td><code>js/data-faq.js</code></td>
           </tr>
         </tbody>
       </table>
@@ -382,7 +355,7 @@
   <!-- ░░ 3. CONTENT DATA MAINTENANCE INDEX ░░ -->
   <section id="sec-content">
     <h2 class="section-heading">3. 內容資料維護索引（Content Data Maintenance Index）</h2>
-    <p class="text-muted">先查「快速索引」找到要編輯的檔案，再展開下方對應區塊查看欄位層級的修改說明。</p>
+    <p class="text-muted">先查「快速索引」找到要編輯的檔案，再展開下方對應區塊查看欄位修改說明。</p>
 
     <!-- Quick Reference -->
     <h3 class="subsection-heading">快速索引 — 找檔案</h3>
@@ -402,7 +375,7 @@
             <td>首頁、方案總覽、方案 1–3</td>
           </tr>
           <tr>
-            <td>成功案例（標題、摘要、引言、圖片）</td>
+            <td>成功案例（標題、摘要、引言、內文）</td>
             <td><code>js/data-case.js</code></td>
             <td>首頁、案例總覽、案例 1–8</td>
           </tr>
@@ -417,7 +390,7 @@
             <td>首頁、方案總覽</td>
           </tr>
           <tr>
-            <td>首頁 Banner、痛點卡片、優勢卡片（inline 資料）</td>
+            <td>首頁 Banner、痛點卡片、優勢卡片</td>
             <td><code>index.html</code>（頁內 &lt;script&gt;）</td>
             <td>首頁</td>
           </tr>
@@ -435,6 +408,11 @@
             <td>技術支援頁面所有內容</td>
             <td><code>pages/EINV_tech_support.html</code>（直接修改 HTML）</td>
             <td>技術支援頁</td>
+          </tr>
+          <tr>
+            <td>圖片素材（Logo、Banner、案例縮圖）</td>
+            <td><a href="image-maintenance.html" target="_blank" class="img-link-box"><i class="bi bi-image"></i> 圖片管理頁面</a></td>
+            <td>全站</td>
           </tr>
         </tbody>
       </table>
@@ -460,12 +438,12 @@
               <tr>
                 <td>主視覺 Banner 輪播（標題、副標、按鈕）</td>
                 <td><code>index.html</code>　<code>bannerData[]</code>（inline）</td>
-                <td>修改 index.html 內的 <code>bannerData</code> 陣列，含圖片路徑與文字</td>
+                <td>修改 <code>bannerData</code> 陣列各項目的 <code>title</code>、<code>subtitle</code>、<code>btnText</code> 欄位</td>
               </tr>
               <tr>
                 <td>Hero 特色圖示列（3 項標籤）</td>
                 <td><code>index.html</code>　<code>heroData[]</code>（inline）</td>
-                <td>修改 index.html 內的 <code>heroData</code> 陣列</td>
+                <td>修改 <code>heroData</code> 陣列</td>
               </tr>
               <tr>
                 <td>角色分流卡片（店家 ／ IT 說明）</td>
@@ -479,23 +457,18 @@
               </tr>
               <tr>
                 <td>核心服務方案卡片（3 正式 ＋ 2 預留）</td>
-                <td><code>js/data-solution.js</code>　<code>solutionData[].tag / name / cardText / icon / image</code></td>
-                <td>修改各方案摘要欄位；設定 <code>image</code> 時顯示圖片，否則改用 <code>icon</code></td>
+                <td><code>js/data-solution.js</code>　<code>solutionData[].tag / name / cardText / icon</code></td>
+                <td>修改各方案的 <code>tag</code>、<code>name</code>、<code>cardText</code>、<code>icon</code> 欄位</td>
               </tr>
               <tr>
                 <td>品牌優勢卡片（4 項）</td>
                 <td><code>index.html</code>　<code>featureData[]</code>（inline）</td>
-                <td>修改 index.html 內的 <code>featureData</code> 陣列</td>
+                <td>修改 <code>featureData</code> 陣列</td>
               </tr>
               <tr>
                 <td>成功案例引言圓圈（客戶一句話）</td>
                 <td><code>js/data-case.js</code>　<code>caseData[].quote</code></td>
                 <td>修改各案例的 <code>quote</code> 欄位</td>
-              </tr>
-              <tr>
-                <td>客戶 Logo 跑馬燈</td>
-                <td><code>js/data-case.js</code>　<code>caseData[].logo</code></td>
-                <td>有 <code>logo</code> 欄位的案例才顯示；新增 Logo 請放 <code>img/clients/logo/</code></td>
               </tr>
               <tr>
                 <td>CTA 行動呼籲區段（標題、按鈕文字）</td>
@@ -545,7 +518,7 @@
               <tr>
                 <td>上線流程步驟</td>
                 <td><code>js/data-solution.js</code>　<code>solutionData[N].process[]</code></td>
-                <td>修改各步驟物件的 <code>title</code>、<code>desc</code></td>
+                <td>修改各步驟的 <code>title</code>、<code>desc</code></td>
               </tr>
               <tr>
                 <td>技術架構說明（店家面 ／ IT 面）</td>
@@ -669,217 +642,6 @@
     </details>
   </section>
 
-  <!-- ░░ 4. IMAGE ASSET INVENTORY ░░ -->
-  <section id="sec-assets">
-    <h2 class="section-heading">4. 圖片素材維護索引（Image Asset Inventory）</h2>
-    <p class="text-muted">所有圖片的存放目錄、用途與建議規格。排序依素材在網站上首次出現的位置。點擊各區塊展開。</p>
-
-    <!-- 全站 -->
-    <details class="toggle-group" open>
-      <summary>全站（Navbar ／ Footer）</summary>
-      <div class="toggle-body">
-        <div class="table-responsive">
-          <table class="table table-bordered table-striped table-hover align-middle">
-            <thead>
-              <tr>
-                <th>素材名稱</th>
-                <th>檔案路徑</th>
-                <th>說明</th>
-                <th>建議格式 ／ 規格</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>圓形品牌 Logo</td>
-                <td><code>img/brand/logo-circle.svg</code></td>
-                <td>導航列左側品牌識別</td>
-                <td>SVG（向量，任意縮放）</td>
-              </tr>
-              <tr>
-                <td>橫式品牌 Logo</td>
-                <td><code>img/brand/logo-horizontal.svg</code></td>
-                <td>頁尾品牌識別</td>
-                <td>SVG</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </details>
-
-    <!-- 首頁 -->
-    <details class="toggle-group" open>
-      <summary>首頁</summary>
-      <div class="toggle-body">
-        <div class="table-responsive">
-          <table class="table table-bordered table-striped table-hover align-middle">
-            <thead>
-              <tr>
-                <th>首次出現位置</th>
-                <th>素材名稱</th>
-                <th>檔案路徑</th>
-                <th>說明</th>
-                <th>建議格式 ／ 規格</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>首頁 Banner</td>
-                <td>輪播主視覺 1</td>
-                <td><code>img/home/banner-01.png</code></td>
-                <td>首頁第 1 張輪播主視覺</td>
-                <td>PNG，建議 1920 × 600 px</td>
-              </tr>
-              <tr>
-                <td>首頁 Banner</td>
-                <td>輪播主視覺 2</td>
-                <td><code>img/home/banner-02.jpg</code></td>
-                <td>首頁第 2 張輪播主視覺</td>
-                <td>JPG，建議 1920 × 600 px</td>
-              </tr>
-              <tr>
-                <td>首頁 Banner</td>
-                <td>輪播主視覺 3</td>
-                <td><code>img/home/banner-03.png</code></td>
-                <td>首頁第 3 張輪播主視覺</td>
-                <td>PNG，建議 1920 × 600 px</td>
-              </tr>
-              <tr>
-                <td>首頁 痛點卡片</td>
-                <td>痛點插圖 1–3</td>
-                <td><code>img/home/problem-01.svg</code> ～ <code>problem-03.svg</code></td>
-                <td>痛點卡片對應插圖（3 張）</td>
-                <td>SVG</td>
-              </tr>
-              <tr>
-                <td>首頁 ／ 方案總覽</td>
-                <td>店家角色圖示</td>
-                <td><code>img/icons/role-store.svg</code></td>
-                <td>「我是店家」角色卡片圖示</td>
-                <td>SVG</td>
-              </tr>
-              <tr>
-                <td>首頁 ／ 方案總覽</td>
-                <td>系統商角色圖示</td>
-                <td><code>img/icons/role-system.svg</code></td>
-                <td>「我是 IT ／ 系統商」角色卡片圖示</td>
-                <td>SVG</td>
-              </tr>
-              <tr>
-                <td>全站（區塊標題裝飾）</td>
-                <td>半雲裝飾圖示（左）</td>
-                <td><code>img/icons/halfcloud-left.svg</code></td>
-                <td><code>.section-title--decorated</code> 標題左側裝飾（<code>::before</code>）</td>
-                <td>SVG</td>
-              </tr>
-              <tr>
-                <td>全站（區塊標題裝飾）</td>
-                <td>半雲裝飾圖示（右）</td>
-                <td><code>img/icons/halfcloud-right.svg</code></td>
-                <td>同上右側（<code>::after</code>）；為左側鏡像</td>
-                <td>SVG</td>
-              </tr>
-              <tr>
-                <td>首頁 成功案例見證</td>
-                <td>客戶 Logo — 黑沃咖啡（待補）</td>
-                <td><code>img/clients/logo/HWC.png</code></td>
-                <td>首頁見證圓圈展示</td>
-                <td>PNG，透明背景（檔案尚待手動補入）</td>
-              </tr>
-              <tr>
-                <td>首頁 成功案例見證</td>
-                <td>客戶 Logo — 長田本庄軒（待補）</td>
-                <td><code>img/clients/logo/nagata.png</code></td>
-                <td>首頁見證圓圈展示</td>
-                <td>PNG，透明背景（檔案尚待手動補入）</td>
-              </tr>
-              <tr>
-                <td>首頁 成功案例見證</td>
-                <td>客戶 Logo — 松本清</td>
-                <td><code>img/clients/logo/matsumoto.png</code></td>
-                <td>首頁見證圓圈展示</td>
-                <td>PNG，透明背景</td>
-              </tr>
-              <tr>
-                <td>首頁 成功案例見證</td>
-                <td>客戶 Logo — 久大文具（待補）</td>
-                <td><code>img/clients/logo/new9ta.png</code></td>
-                <td>首頁見證圓圈展示</td>
-                <td>PNG，透明背景（檔案尚待手動補入）</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </details>
-
-    <!-- 成功案例 -->
-    <details class="toggle-group" open>
-      <summary>成功案例頁</summary>
-      <div class="toggle-body">
-        <div class="table-responsive">
-          <table class="table table-bordered table-striped table-hover align-middle">
-            <thead>
-              <tr>
-                <th>素材名稱</th>
-                <th>檔案路徑</th>
-                <th>說明</th>
-                <th>建議格式 ／ 規格</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>案例縮圖 1–5</td>
-                <td><code>img/cases/case1.jpg</code> ～ <code>case5.jpg</code></td>
-                <td>案例卡片與詳細頁用縮圖（case1–5 已備妥）</td>
-                <td>JPG，建議 800 × 500 px</td>
-              </tr>
-              <tr class="tr-warn">
-                <td>案例縮圖 6–8（待補）</td>
-                <td><code>img/cases/case6.jpg</code> ～ <code>case8.jpg</code></td>
-                <td><code>js/data-case.js</code> 已引用，但圖檔尚未提供，需手動補入</td>
-                <td>JPG，建議 800 × 500 px</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </details>
-
-    <!-- 通用 -->
-    <details class="toggle-group">
-      <summary>通用</summary>
-      <div class="toggle-body">
-        <div class="table-responsive">
-          <table class="table table-bordered table-striped table-hover align-middle">
-            <thead>
-              <tr>
-                <th>首次出現位置</th>
-                <th>素材名稱</th>
-                <th>檔案路徑</th>
-                <th>說明</th>
-                <th>建議格式 ／ 規格</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>各頁 Accordion</td>
-                <td>Accordion 佔位圖</td>
-                <td><code>img/placeholder_accordion.svg</code></td>
-                <td>尚未置入圖片時的佔位示意圖</td>
-                <td>SVG（置換為實際圖片後可移除）</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </details>
-
-    <p class="text-muted small mt-3">
-      <strong>新增客戶 Logo 說明：</strong>將 PNG 檔（透明背景）放入 <code>img/clients/logo/</code>，再到 <code>index.html</code> 的 <code>clientLogos</code> 陣列新增路徑與品牌名稱即可。
-    </p>
-  </section>
-
   <!-- ░░ DOCUMENT FOOTER ░░ -->
   <footer class="doc-footer">
     <p>本文件由 IMU Framework 製作，版本 v1.0。</p>
@@ -896,3 +658,5 @@
 <script src="js/components.js"></script>
 </body>
 </html>
+
+<!-- IMU089_群豐資訊科技_新版EINV網頁 version1.1 updated by IMU Framework. 2026/06/05 -->

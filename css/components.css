@@ -1,7 +1,8 @@
 /*
- * components.css - EMIS 共用組件樣式庫
- * 所有可重用組件的 CSS，供所有頁面引用
- * 修改組件外觀請在此檔案操作，勿動 main.min.css
+ * components.css — 全站共用組件樣式庫
+ * 含：Section 標題、Hero 圖示帶、角色卡、FAQ / Tech accordion 等可重用組件
+ * 注意：勿修改 main.min.css，組件外觀調整請在此檔案操作
+ * 引用頁面：所有頁面
  */
 
 /* ============================================

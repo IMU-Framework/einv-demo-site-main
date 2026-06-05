@@ -1,5 +1,5 @@
 /**
- * solution-data.js — 方案管理 Database（單一來源）
+ * data-solution.js — 方案管理 Database（單一來源）
  *
  * solutionData 同時驅動：
  *   - 首頁 / overview 頁的方案卡片  → renderSolutionCards()
