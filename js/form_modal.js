@@ -1,4 +1,4 @@
-/* navbar.js — extracted navbar-related scripts so they execute when loaded dynamically */
+/* form_modal.js — contact form validation and submission modal logic */
 (function(window, document){
   // closeAlert from template
   function closeAlert() {
